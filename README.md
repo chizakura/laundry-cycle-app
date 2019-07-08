@@ -2,79 +2,107 @@
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the day
-
-|  Day | Deliverable | Status
+| Day | Deliverable | Status |
 |---|---| ---|
-|Day 1| Project Description | Incomplete
-|Day 2| Wireframes / Priority Matrix / Functional Components | Incomplete
-|Day 3| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Day 4| Pseudocode / actual code | Incomplete
-|Day 5| Initial Clickable Model  | Incomplete
-|Day 6| MVP | Incomplete
-|Day 7| Present | Incomplete
+|7/8| Project Description | Incomplete |
+|7/8| Wireframes / Priority Matrix / Functional Components | Incomplete |
+|7/9| Core Application Structure (HTML, CSS, etc.) | Incomplete |
+|7/10| Pseudocode / actual code | Incomplete |
+|7/11| Initial Clickable Model | Incomplete |
+|7/12| MVP | Incomplete |
+|7/15| Present | Incomplete |
 
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+**Laundry Cycle** is a React application that helps users organize their clothes for washing and drying. Users are able to add their clothes in the app and the laundry care info from the clothes. There is also a guide to help users decipher the care symbols.
+
+- Laundry Cycle - React Application
+- [Washicons](http://lucijanblagonic.github.io/Washicons/)
+- [Tide Guide on How to Do Laundry](https://tide.com/en-us/how-to-wash-clothes/how-to-do-laundry/your-comprehensive-guide-on-how-to-do-laundry)
 
 ## Wireframes
 
-Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
+| Wireframe | Description |
+| --- | --- |
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
+- Laundry Care Priority Matrix
 
 ### MVP/PostMVP - 5min
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
-
-#### SAMPLE.....
 #### MVP 
 
-- Find and use external api 
-- Render data on page in a list
+- [ ] Register a new user
+- [ ] Log in user
+- [ ] Sign out user
+- [ ] Show user profile
+- [ ] Add new clothes to closet
+- [ ] Select care symbols for a clothing item
+- [ ] Update a clothing item
+- [ ] Remove a clothing item
+- [ ] Organize clothes for washing
+- [ ] Organize clothes for drying
+- [ ] Show guide for care symbols
 
 #### PostMVP 
 
-- Add data to favorites section
+- [ ] Upload care symbols of a clothing item by scanning tag
+- [ ] Add notes for a clothing item
+- [ ] Show full guide on how to do laudry
 
 ## Architectural Design
 
-Define the the components and the architectural design of your app.
+- Laundry Cycle AD
 
-#### [SAMPLE FROM A MAP BASED PROJECT](https://res.cloudinary.com/dvjtpejbw/image/upload/v1540221204/20181022_111216.jpg)
+## Entity Relationship Diagram
 
-## ERD
-
-Create the ERD model for your project
+- Laundry Cycle ERD
 
 ## UI Components
 
-Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components. 
+| Component | Description |
+| --- | --- |
+| Home | This will render the main page for the app |
+| SignUpForm | This will render the registration form to create a new user |
+| Login | This will render the login form for an existing user to sign in |
+| Profile | This will render the user's details |
+| Closet | This will render a list of all clothes added by the user |
+| NewClothesForm | This will render the form to add clothes to the user's closet
+| ShowClothingItem | This will render the details of a clothing item |
+| Washer | This will render a list of clothes and their washing options |
+| Dryer | This will render a list of clothes and their drying options |
+| CareGuide | This will render guide for care symbols |
 
-#### SAMPLE.....
-| Component | Description | 
-| --- | :---: |  
-| Header | This will render the header include the nav | 
-| Footer | This will render the header include the nav | 
 
+## Time Frames
 
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
-
-#### SAMPLE.....
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs |
-| Total | H | 6hrs| 5hrs | 
+| Display Home page | H | 1.5hrs| - |
+| Display Login page | H | 1.5hrs | - |
+| Display SignUpForm page | H | 1.5hrs | - |
+| Add new user | H | 2.5hrs | - |
+| Log in existing user | H | 2.5hrs | - |
+| Sign out existing user | H | 2.5hrs | - |
+| Display Profile page of logged in user | H | 3hrs | - |
+| Display list of clothes | H | 3hrs | - |
+| Add clothes | H | 2hrs | - |
+| Select care symbols | H | 5hrs | - |
+| Display ShowClothingItem page | H | 3hrs | - |
+| Edit details for clothing item | M | 4.5hrs | - |
+| Delete clothes | M | 1.5hrs | - |
+| Display Washer page | H | 1.5hrs | - |
+| Sort list of clothes by color shades | H | 5.5hrs | - |
+| Display Dryer page | H | 1.5hrs | - |
+| Sort list of clothes by drying options | H | 3.5hrs | - |
+| Display CareGuide page | M | 5hrs | - |
+| Fix bugs and errors | M | 6hrs | - |
+| Total |  | 57hrs | - |
 
 ## Helper Functions
-Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
+Helper functions should be generic enough that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
 
 #### SAMPLE.....
 | Function | Description | 
@@ -82,7 +110,7 @@ Helper functions should be generic enought that they can be reused in other appl
 | Capitalize | This will capitalize the first letter in a string of text | 
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project. 
+ Use this section to list all supporting libraries and thier role in the project.
  
  #### SAMPLE.....
 | Library | What it Does | 
@@ -93,7 +121,7 @@ Helper functions should be generic enought that they can be reused in other appl
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
+Use this section to include a brief code snippet of functionality that you are proud of and a brief description  
 
 #### SAMPLE.....
 ```
