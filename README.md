@@ -60,7 +60,7 @@
 
 ## Architectural Design
 
-- [Laundry Cycle AD](https://res.cloudinary.com/chizakura/image/upload/v1562591794/Project%204/Laundry_Cycle_React_AD.jpg)
+- [Laundry Cycle React AD](https://res.cloudinary.com/chizakura/image/upload/v1562591794/Project%204/Laundry_Cycle_React_AD.jpg)
 
 ## Entity Relationship Diagram
 
