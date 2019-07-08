@@ -25,6 +25,9 @@
 
 | Wireframe | Description |
 | --- | --- |
+| [Home Page](https://wireframe.cc/G5FDkO) | Main page for not logged in users that links to login and sign up pages |
+| [Login](https://wireframe.cc/8XM2uy) | Page where existing users can log into their account |
+| [Sign Up](https://wireframe.cc/EhpzAb) | Page where users can sign up to create an account |
 
 ## Priority Matrix
 
@@ -51,14 +54,17 @@
 - [ ] Upload care symbols of a clothing item by scanning tag
 - [ ] Add notes for a clothing item
 - [ ] Show full guide on how to do laudry
+- [ ] Organize clothes for bleaching
+- [ ] Organize clothes for drycleaning
+- [ ] Organize clothes for ironing
 
 ## Architectural Design
 
-- Laundry Cycle AD
+- [Laundry Cycle AD](https://res.cloudinary.com/chizakura/image/upload/v1562591794/Project%204/Laundry_Cycle_React_AD.jpg)
 
 ## Entity Relationship Diagram
 
-- Laundry Cycle ERD
+- [Laundry Cycle ERD](https://res.cloudinary.com/chizakura/image/upload/v1562595064/Project%204/Laundry_Cycle_ERD.png)
 
 ## UI Components
 
