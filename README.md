@@ -64,7 +64,7 @@
 
 ## Entity Relationship Diagram
 
-- [Laundry Cycle ERD](https://res.cloudinary.com/chizakura/image/upload/v1562595064/Project%204/Laundry_Cycle_ERD.png)
+- [Laundry Cycle ERD](https://res.cloudinary.com/chizakura/image/upload/v1562597109/Project%204/Laundry_Cycle_ERD.png)
 
 ## UI Components
 
