@@ -87,7 +87,7 @@
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: |
 | Display Home page | H | 1.5hrs| 4.5hrs |
-| Display Login page | H | 1.5hrs | - |
+| Display Login page | H | 1.5hrs | 1.5hrs |
 | Display SignUpForm page | H | 1.5hrs | - |
 | Add new user | H | 2.5hrs | - |
 | Log in existing user | H | 2.5hrs | - |
@@ -112,14 +112,16 @@ Helper functions should be generic enough that they can be reused in other appli
 
 #### SAMPLE.....
 | Function | Description | 
-| --- | :---: |  
+| --- | --- |  
 | Capitalize | This will capitalize the first letter in a string of text | 
 
 ## Additional Libraries
 | Library | What it Does | 
-| --- | :---: |  
-| Bootstrap | Used to help style my application | 
-| React Bootstrap | Used to help style my application in React | 
+| --- | --- |  
+| Bootstrap | Used to adding styling to application | 
+| React Bootstrap | Used to add styling in React |
+| Google Fonts | Used to match theme of application |
+| [Washicons](http://lucijanblagonic.github.io/Washicons/) | Used icons to match theme of application and for care guide |
 
 
 ## Code Snippet
