@@ -26,3 +26,10 @@ body {
   justify-content: center;
   margin-top: 20vh;
 }
+
+/* ./Components/SignUpForm */
+.signup {
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+}

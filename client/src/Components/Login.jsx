@@ -18,7 +18,7 @@ class Login extends Component {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control name="password" type="password" placeholder="Enter password"/>
                             </Form.Group>
-                            <Button variant="light" type="submit">Login</Button>
+                            <Button variant="outline-secondary" type="submit">Login</Button>
                         </Form>
                     </Card.Body>
                 </Card>
