@@ -12,6 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar bg="light" variant="light">
+          <div class="icon icon-wh-custom-washing-machine"></div>
           <Navbar.Brand href="/">Laundry Cycle</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
           <Navbar.Collapse id="responsive-navbar-nav">

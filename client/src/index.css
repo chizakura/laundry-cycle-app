@@ -3,6 +3,7 @@ body {
   font-family: 'Questrial', sans-serif;
 }
 
+/* App.js */
 .App {
   text-align: center;
 }
@@ -12,8 +13,16 @@ body {
   justify-content: space-around;
 }
 
+/* ./Components/Home */
 .caption-color {
   color: white;
   font-size: 24px;
   padding: 100px 100px 0 100px;
+}
+
+/* ./Components/Login */
+.login {
+  display: flex;
+  justify-content: center;
+  margin-top: 20vh;
 }
