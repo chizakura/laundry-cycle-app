@@ -2,10 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const passport = require('passport');
 const {userRouter} = require('./routes/user');
 const {clothingitemRouter} = require('./routes/clothingitem');
 const {washoptionRouter} = require('./routes/washoption');
 const {dryoptionRouter} = require('./routes/dryoption');
+const {authRouter} = require('./routes/auth');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({
@@ -22,6 +24,8 @@ app.use('/users', userRouter);
 app.use('/items', clothingitemRouter);
 app.use('/washoptions', washoptionRouter);
 app.use('/dryoptions', dryoptionRouter);
+app.use('/auth', authRouter);
+app.use(passport.initialize());
 
 const PORT = process.env.PORT || 4567;
 
