@@ -5,6 +5,7 @@ import {Switch, Route} from 'react-router-dom';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUpForm from './Components/SignUpForm';
+import CareGuide from './Components/CareGuide';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Nav className="justify-content-center">
               <Nav.Item><Nav.Link href="/login">Login</Nav.Link></Nav.Item>
               <Nav.Item><Nav.Link href="/signup">Sign Up</Nav.Link></Nav.Item>
+              <Nav.Item><Nav.Link href="/careguide">Care Guide</Nav.Link></Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -24,6 +26,7 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={SignUpForm}/>
+          <Route exact path="/careguide" component={CareGuide}/>
         </Switch>
       </div>
     )
