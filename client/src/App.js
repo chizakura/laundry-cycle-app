@@ -6,6 +6,7 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUpForm from './Components/SignUpForm';
 import CareGuide from './Components/CareGuide';
+import Profile from './Components/Profile';
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={SignUpForm}/>
           <Route exact path="/careguide" component={CareGuide}/>
+          <Route exact path="/profile" component={Profile}/>
         </Switch>
       </div>
     )
