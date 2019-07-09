@@ -8,6 +8,8 @@ const {clothingitemRouter} = require('./routes/clothingitem');
 const {washoptionRouter} = require('./routes/washoption');
 const {dryoptionRouter} = require('./routes/dryoption');
 const {authRouter} = require('./routes/auth');
+const {protectedRouter} = require('./routes/protected');
+const {authorized} = require('./auth/handleAuth');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({
@@ -25,6 +27,7 @@ app.use('/items', clothingitemRouter);
 app.use('/washoptions', washoptionRouter);
 app.use('/dryoptions', dryoptionRouter);
 app.use('/auth', authRouter);
+app.use('/app', authorized, protectedRouter);
 app.use(passport.initialize());
 
 const PORT = process.env.PORT || 4567;

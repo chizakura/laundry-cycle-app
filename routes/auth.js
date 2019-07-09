@@ -4,11 +4,42 @@ const express = require('express');
 const authRouter = express.Router();
 const {passport, jwtSign} = require('../auth/handleAuth');
 
-authRouter.post('/login', (req, res, next) => {
-    passport.authenticate('login', async (err, user, info) => {
+authRouter.post('/signup', async (req, res, next) => {
+    passport.authenticate('signup', async (err, user, info = {}) => {
         try {
-            if(err || !user) {
-                const error = new Error("An Error Occurred");
+            if(err) {
+                return next(err)
+            }
+
+            if(!user) {
+                let error = new Error(info.message || "An error occurred during signup");
+                error.status = 400;
+                return next(error)
+            }
+
+            const {email, id} = user;
+            const payload = {email, id};
+            const token = jwtSign(payload);
+
+            return res.json({user, token, message: "User successfully created"})
+        } catch (err) {
+            return next(err)
+        }
+    }) (req, res, next)
+})
+
+authRouter.post('/login', (req, res, next) => {
+    passport.authenticate('login', async (err, user, info = {}) => {
+        try {
+            if(err) {
+                return next(err)
+            }
+            
+            if(!user) {
+                let error = new Error(info.message || "An error occurred during login");
+                error.status = 400;
+
+                return next(error)
             }
 
             req.login(user, {session: false}, async (error) => {
