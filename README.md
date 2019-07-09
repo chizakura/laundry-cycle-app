@@ -86,7 +86,7 @@
 
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: |
-| Display Home page | H | 1.5hrs| - |
+| Display Home page | H | 1.5hrs| 4.5hrs |
 | Display Login page | H | 1.5hrs | - |
 | Display SignUpForm page | H | 1.5hrs | - |
 | Add new user | H | 2.5hrs | - |
@@ -116,13 +116,10 @@ Helper functions should be generic enough that they can be reused in other appli
 | Capitalize | This will capitalize the first letter in a string of text | 
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project.
- 
- #### SAMPLE.....
 | Library | What it Does | 
 | --- | :---: |  
 | Bootstrap | Used to help style my application | 
-| Giphy API | Used to get gifs to use | 
+| React Bootstrap | Used to help style my application in React | 
 
 
 ## Code Snippet
