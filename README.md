@@ -6,7 +6,7 @@
 |---|---| ---|
 |7/8| Project Description | Complete |
 |7/8| Wireframes / Priority Matrix / Functional Components | Incomplete |
-|7/9| Core Application Structure (HTML, CSS, etc.) | Incomplete |
+|7/9| Core Application Structure (HTML, CSS, etc.) | Complete |
 |7/10| Pseudocode / actual code | Incomplete |
 |7/11| Initial Clickable Model | Incomplete |
 |7/12| MVP | Incomplete |
@@ -25,9 +25,10 @@
 
 | Wireframe | Description |
 | --- | --- |
-| [Home Page](https://wireframe.cc/G5FDkO) | Main page for not logged in users that links to login and sign up pages |
-| [Login](https://wireframe.cc/8XM2uy) | Page where existing users can log into their account |
-| [Sign Up](https://wireframe.cc/EhpzAb) | Page where users can sign up to create an account |
+| [Home Page](https://res.cloudinary.com/chizakura/image/upload/v1562715015/Project%204/Laundry_Cycle_Wireframe_01.png) | Main page for not logged in users that links to login and sign up pages |
+| [Login Page](https://res.cloudinary.com/chizakura/image/upload/v1562715300/Project%204/Laundry_Cycle_Wireframe_02.png) | Page where existing users can log into their account |
+| [Sign Up Page](https://res.cloudinary.com/chizakura/image/upload/v1562715523/Project%204/Laundry_Cycle_Wireframe_03.png) | Page where users can sign up to create an account |
+| [Profile Page](https://res.cloudinary.com/chizakura/image/upload/v1562716462/Project%204/Laundry_Cycle_Wireframe_04.png) | Page that contains logged in user's information |
 
 ## Priority Matrix
 
@@ -88,11 +89,11 @@
 | --- | :---: |  :---: | :---: |
 | Display Home page | H | 1.5hrs| 4.5hrs |
 | Display Login page | H | 1.5hrs | 1.5hrs |
-| Display SignUpForm page | H | 1.5hrs | - |
+| Display SignUpForm page | H | 1.5hrs | 0.5hrs |
 | Add new user | H | 2.5hrs | - |
-| Log in existing user | H | 2.5hrs | - |
-| Sign out existing user | H | 2.5hrs | - |
-| Display Profile page of logged in user | H | 3hrs | - |
+| Log in existing user | H | 2.5hrs | 2hrs |
+| Sign out existing user | H | 2.5hrs | 1hr |
+| Display Profile page of logged in user | H | 3hrs | 1.5hrs |
 | Display list of clothes | H | 3hrs | - |
 | Add clothes | H | 2hrs | - |
 | Select care symbols | H | 5hrs | - |
