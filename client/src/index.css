@@ -33,3 +33,13 @@ body {
   justify-content: center;
   margin-top: 15vh;
 }
+
+/* ./Components/Profile */
+.profile {
+  margin: 50px;
+}
+
+.profile-pic {
+  height: auto;
+  width: 300px;
+}
