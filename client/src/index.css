@@ -43,3 +43,16 @@ body {
   height: auto;
   width: 300px;
 }
+
+/* ./Components/Closet */
+.closet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.closet-title {
+  margin-bottom: 30px;
+}

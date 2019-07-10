@@ -80,7 +80,7 @@ class App extends Component {
               {isSignedIn && 
                 <NavDropdown alignRight title="Menu" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                  <NavDropdown.Item href="/closet">Closet</NavDropdown.Item>
+                  <NavDropdown.Item href="/closet">My Closet</NavDropdown.Item>
                   <NavDropdown.Item href="/careguide">Care Guide</NavDropdown.Item>
                   <NavDropdown.Divider/>
                   <NavDropdown.Item onClick={this.signOutUser}>Sign Out</NavDropdown.Item>
