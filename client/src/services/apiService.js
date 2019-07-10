@@ -36,3 +36,16 @@ export const getProfile = async () => {
         throw err
     }
 }
+
+export const signUp = async (data) => {
+    try {
+        const res = await api.post('/auth/signup', data);
+        const {data: {user, token}} = res;
+        console.log(res.data);
+
+        localStorage.setItem('token', token)
+        return user
+    } catch (err) {
+        throw err
+    }
+}

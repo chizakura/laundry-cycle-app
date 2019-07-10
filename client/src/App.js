@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {Switch, Route} from 'react-router-dom';
 import authService from './services/authService';
-import {login, getProfile} from './services/apiService';
+import {login, getProfile, signUp} from './services/apiService';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUpForm from './Components/SignUpForm';
@@ -35,6 +35,18 @@ class App extends Component {
   loginUser = async (credentials) => {
     try {
       const user = await login(credentials);
+      this.setState({
+        isSignedIn: true,
+        user
+      })
+    } catch (err) {
+      throw err
+    }
+  }
+
+  signUpUser = async (credentials) => {
+    try {
+      const user = await signUp(credentials);
       this.setState({
         isSignedIn: true,
         user
@@ -86,7 +98,13 @@ class App extends Component {
               handleLogin={this.loginUser}
             />
           )}/>
-          <Route exact path="/signup" component={SignUpForm}/>
+          <Route exact path="/signup" render={(props) => (
+            <SignUpForm
+              {...props}
+              isSignedIn={isSignedIn}
+              handleSignUp={this.signUpUser}
+            />
+          )}/>
           <Route exact path="/careguide" component={CareGuide}/>
           <ProtectedRoute
             exact path="/profile"
