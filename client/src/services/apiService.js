@@ -49,3 +49,14 @@ export const signUp = async (data) => {
         throw err
     }
 }
+
+export const getItems = async (id) => {
+    try {
+        const res = await api.get(`/users/${id}/items`)
+        const {data: {items}} = res;
+
+        return items
+    } catch (err) {
+        throw err
+    }
+}

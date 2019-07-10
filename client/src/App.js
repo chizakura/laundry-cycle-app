@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import {Switch, Route} from 'react-router-dom';
+import logo from './Images/washing-machine.png';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import {Switch, Route} from 'react-router-dom';
 import authService from './services/authService';
-import {login, getProfile, signUp} from './services/apiService';
+import {login, getProfile, signUp, getItems} from './services/apiService';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUpForm from './Components/SignUpForm';
@@ -16,16 +17,19 @@ import ProtectedRoute from './Components/ProtectedRoute';
 class App extends Component {
   state = {
     isSignedIn: false,
-    user: {}
+    user: {},
+    clothes: []
   }
 
   async componentDidMount() {
     try {
       const fetchedUser = await getProfile();
+      const fetchedItems = await getItems(fetchedUser.id)
 
       this.setState({
         isSignedIn: authService.isAuthenticated(),
-        user: fetchedUser
+        user: fetchedUser,
+        clothes: fetchedItems
       })
     } catch (err) {
       console.log("Issue fetching token")
@@ -65,11 +69,11 @@ class App extends Component {
   }
 
   render() {
-    const {isSignedIn, user} = this.state;
+    const {isSignedIn, user, clothes} = this.state;
     return (
       <div className="App">
         <Navbar bg="light" variant="light">
-          <img style={{marginRight: '10px'}} src="washing-machine.png" alt="laundry-logo"/>
+          <img style={{marginRight: '10px'}} src={logo} alt="laundry-logo"/>
           <Navbar.Brand href="/">Laundry Cycle</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
@@ -80,7 +84,7 @@ class App extends Component {
               {isSignedIn && 
                 <NavDropdown alignRight title="Menu" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                  <NavDropdown.Item href="/closet">My Closet</NavDropdown.Item>
+                  <NavDropdown.Item href={`/user/${user.id}/closet`}>My Closet</NavDropdown.Item>
                   <NavDropdown.Item href="/careguide">Care Guide</NavDropdown.Item>
                   <NavDropdown.Divider/>
                   <NavDropdown.Item onClick={this.signOutUser}>Sign Out</NavDropdown.Item>
@@ -112,8 +116,8 @@ class App extends Component {
             component={Profile}
           />
           <ProtectedRoute
-            exact path="/closet"
-            user={user}
+            exact path="/user/:id/closet"
+            clothes={clothes}
             component={Closet}
           />
         </Switch>

@@ -1,6 +1,6 @@
 const express = require('express');
 const userRouter = express.Router();
-const {User} = require('../models/index');
+const {User, ClothingItem} = require('../models/index');
 
 userRouter.get('/', async (req, res) => {
     const users = await User.findAll();
@@ -15,6 +15,19 @@ userRouter.get('/:id', async (req, res) => {
     res.json({
         message: `user with id of ${req.params.id}`,
         user: user
+    })
+})
+
+userRouter.get('/:id/items', async (req, res) => {
+    const user = await User.findByPk(req.params.id);
+    const items = await ClothingItem.findAll({
+        where: {
+            userId: req.params.id
+        }
+    });
+    res.json({
+        message: "list of user's clothes",
+        items: items
     })
 })
 
