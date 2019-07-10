@@ -7,7 +7,16 @@ class Home extends Component {
             <div>
                 <Figure>
                     <Figure.Caption className="caption-color">
-                        We can only transform our lives if we sincerely want to.  Small changes transform our lives. --Marie Kondo
+                        <blockquote className="blockquote mb-0">
+                            <p>
+                                {' '}
+                                We can only transform our lives if we sincerely want to.  Small changes transform our lives.
+                                {' '}
+                            </p>
+                            <footer className="blockquote-footer">
+                                Marie Kondo
+                            </footer>
+                        </blockquote>
                     </Figure.Caption>
                     <Figure.Image
                         alt="laundry-logo"

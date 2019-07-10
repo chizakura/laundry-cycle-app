@@ -38,6 +38,7 @@ class Login extends Component {
         return (
             <div className="login">
                 <Card style={{width: '25rem'}}>
+                    <Card.Header></Card.Header>
                     <Card.Body>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
