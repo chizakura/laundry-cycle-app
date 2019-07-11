@@ -29,6 +29,9 @@
 | [Login Page](https://res.cloudinary.com/chizakura/image/upload/v1562715300/Project%204/Laundry_Cycle_Wireframe_02.png) | Page where existing users can log into their account |
 | [Sign Up Page](https://res.cloudinary.com/chizakura/image/upload/v1562715523/Project%204/Laundry_Cycle_Wireframe_03.png) | Page where users can sign up to create an account |
 | [Profile Page](https://res.cloudinary.com/chizakura/image/upload/v1562716462/Project%204/Laundry_Cycle_Wireframe_04.png) | Page that contains logged in user's information |
+| [Closet Page](https://res.cloudinary.com/chizakura/image/upload/v1562765911/Project%204/Laundry_Cycle_Wireframe_05.png) | Page that displays list of all clothing items added by the user |
+| [ShowClothingItem Page](https://res.cloudinary.com/chizakura/image/upload/v1562811015/Project%204/Laundry_Cycle_Wireframe_06.png) | Page that displays info for a specific clothing item |
+| NewClothesForm | Form that allows the user to add new clothes |
 
 ## Priority Matrix
 
@@ -90,11 +93,11 @@
 | Display Home page | H | 1.5hrs| 4.5hrs |
 | Display Login page | H | 1.5hrs | 1.5hrs |
 | Display SignUpForm page | H | 1.5hrs | 0.5hrs |
-| Add new user | H | 2.5hrs | - |
+| Add new user | H | 2.5hrs | 1.5hrs |
 | Log in existing user | H | 2.5hrs | 2hrs |
 | Sign out existing user | H | 2.5hrs | 1hr |
 | Display Profile page of logged in user | H | 3hrs | 1.5hrs |
-| Display list of clothes | H | 3hrs | - |
+| Display list of clothes | H | 3hrs | 3hrs |
 | Add clothes | H | 2hrs | - |
 | Select care symbols | H | 5hrs | - |
 | Display ShowClothingItem page | H | 3hrs | - |
@@ -120,7 +123,7 @@ Helper functions should be generic enough that they can be reused in other appli
 | Library | What it Does | 
 | --- | --- |  
 | Bootstrap | Used to adding styling to application | 
-| React Bootstrap | Used to add styling in React |
+| React Bootstrap | Used to add bootstrap styling in React |
 | Google Fonts | Used to match theme of application |
 | [Washicons](http://lucijanblagonic.github.io/Washicons/) | Used icons to match theme of application and for care guide |
 
