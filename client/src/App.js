@@ -140,6 +140,7 @@ class App extends Component {
           />
           <ProtectedRoute
             exact path="/newclothesform"
+            user={user}
             component={NewClothesForm}
           />
         </Switch>

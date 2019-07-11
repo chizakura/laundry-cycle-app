@@ -22,7 +22,6 @@ class ShowClothingItem extends Component {
 
     render() {
         const {clothingItem} = this.props;
-        console.log(clothingItem)
         return (
             <div className="clothing-item">
                 <Card>
