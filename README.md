@@ -30,8 +30,8 @@
 | [Sign Up Page](https://res.cloudinary.com/chizakura/image/upload/v1562715523/Project%204/Laundry_Cycle_Wireframe_03.png) | Page where users can sign up to create an account |
 | [Profile Page](https://res.cloudinary.com/chizakura/image/upload/v1562716462/Project%204/Laundry_Cycle_Wireframe_04.png) | Page that contains logged in user's information |
 | [Closet Page](https://res.cloudinary.com/chizakura/image/upload/v1562765911/Project%204/Laundry_Cycle_Wireframe_05.png) | Page that displays list of all clothing items added by the user |
-| [ShowClothingItem Page](https://res.cloudinary.com/chizakura/image/upload/v1562811015/Project%204/Laundry_Cycle_Wireframe_06.png) | Page that displays info for a specific clothing item |
-| NewClothesForm | Form that allows the user to add new clothes |
+| [Show Clothing Item Page](https://res.cloudinary.com/chizakura/image/upload/v1562811015/Project%204/Laundry_Cycle_Wireframe_06.png) | Page that displays info for a specific clothing item |
+| [New Clothes Form Page](https://res.cloudinary.com/chizakura/image/upload/v1562860166/Project%204/Laundry_Cycle_Wireframe_07.png) | Form that allows the user to add new clothes |
 
 ## Priority Matrix
 
@@ -108,8 +108,7 @@
 | Display Dryer page | H | 1.5hrs | - |
 | Sort list of clothes by drying options | H | 3.5hrs | - |
 | Display CareGuide page | M | 5hrs | - |
-| Fix bugs and errors | M | 6hrs | - |
-| Total |  | 57hrs | - |
+| Total |  | 51hrs | - |
 
 ## Helper Functions
 Helper functions should be generic enough that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
@@ -126,7 +125,7 @@ Helper functions should be generic enough that they can be reused in other appli
 | React Bootstrap | Used to add bootstrap styling in React |
 | Google Fonts | Used to match theme of application |
 | [Washicons](http://lucijanblagonic.github.io/Washicons/) | Used icons to match theme of application and for care guide |
-| Material Icons | Used to get icons for edit and delete |
+| Material Icons | Used to get icons to add more style to application |
 
 
 ## Code Snippet
@@ -151,6 +150,6 @@ function reverse(string) {
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
 
-#### SAMPLE.....
+#### #1
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
 **RESOLUTION**: Missing comma after first object in sources {} object
