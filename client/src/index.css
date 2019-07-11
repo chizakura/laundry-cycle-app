@@ -81,3 +81,10 @@ body {
 .back-button {
   color: black;
 }
+
+/* ./Components/NewClothesForm */
+.new-clothes {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
