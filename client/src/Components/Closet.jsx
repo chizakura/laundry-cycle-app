@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import clothingImgDefault from '../Images/wh-custom-laundry-basket-full.png';
+import {Link} from 'react-router-dom';
+import clothingImgDefault from '../Images/shirt.png';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 
@@ -23,7 +24,7 @@ class Closet extends Component {
                                         <br></br>
                                         Color: {item.color}
                                     </Card.Text>
-                                    <Card.Link href="#">More</Card.Link>
+                                    <Card.Link as={Link} to={`/closet/${item.id}`}>More</Card.Link>
                                 </Card.Body>
                             </Card>
                         </CardDeck>

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Link} from 'react-router-dom';
 import logo from './Images/washing-machine.png';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import authService from './services/authService';
-import {login, getProfile, signUp, getItems} from './services/apiService';
+import {login, getProfile, signUp, getItems, getClothingItem} from './services/apiService';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUpForm from './Components/SignUpForm';
@@ -13,18 +13,21 @@ import CareGuide from './Components/CareGuide';
 import Profile from './Components/Profile';
 import Closet from './Components/Closet';
 import ProtectedRoute from './Components/ProtectedRoute';
+import ShowClothingItem from './Components/ShowClothingItem';
+import NewClothesForm from './Components/NewClothesForm';
 
 class App extends Component {
   state = {
     isSignedIn: false,
     user: {},
-    clothes: []
+    clothes: [],
+    clothingItem: {}
   }
 
   async componentDidMount() {
     try {
       const fetchedUser = await getProfile();
-      const fetchedItems = await getItems(fetchedUser.id)
+      const fetchedItems = await getItems(fetchedUser.id);
 
       this.setState({
         isSignedIn: authService.isAuthenticated(),
@@ -68,24 +71,32 @@ class App extends Component {
     })
   }
 
+  handleClothingItem = async (itemId) => {
+    const fetchedItem = await getClothingItem(itemId);
+    this.setState({
+      clothingItem: fetchedItem
+    })
+  }
+
   render() {
-    const {isSignedIn, user, clothes} = this.state;
+    const {isSignedIn, user, clothes, clothingItem} = this.state;
     return (
       <div className="App">
         <Navbar bg="light" variant="light">
           <img style={{marginRight: '10px'}} src={logo} alt="laundry-logo"/>
-          <Navbar.Brand href="/">Laundry Cycle</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">Laundry Cycle</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
             <Nav>
-              {!isSignedIn && <Nav.Item><Nav.Link href="/login">Login</Nav.Link></Nav.Item>}
-              {!isSignedIn && <Nav.Item><Nav.Link href="/signup">Sign Up</Nav.Link></Nav.Item>}
-              {!isSignedIn && <Nav.Item><Nav.Link href="/careguide">Care Guide</Nav.Link></Nav.Item>}
+              {!isSignedIn && <Nav.Item><Nav.Link as={Link} to="/login">Login</Nav.Link></Nav.Item>}
+              {!isSignedIn && <Nav.Item><Nav.Link as={Link} to="/signup">Sign Up</Nav.Link></Nav.Item>}
+              {!isSignedIn && <Nav.Item><Nav.Link as={Link} to="/careguide">Care Guide</Nav.Link></Nav.Item>}
+              {isSignedIn && <Nav.Item><Nav.Link as={Link} to="/newclothesform">Add Clothes</Nav.Link></Nav.Item>}
               {isSignedIn && 
                 <NavDropdown alignRight title="Menu" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                  <NavDropdown.Item href={`/user/${user.id}/closet`}>My Closet</NavDropdown.Item>
-                  <NavDropdown.Item href="/careguide">Care Guide</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/closet">My Closet</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/careguide">Care Guide</NavDropdown.Item>
                   <NavDropdown.Divider/>
                   <NavDropdown.Item onClick={this.signOutUser}>Sign Out</NavDropdown.Item>
                 </NavDropdown>
@@ -113,12 +124,23 @@ class App extends Component {
           <ProtectedRoute
             exact path="/profile"
             user={user}
+            count={clothes.length}
             component={Profile}
           />
           <ProtectedRoute
-            exact path="/user/:id/closet"
+            exact path="/closet"
             clothes={clothes}
             component={Closet}
+          />
+          <ProtectedRoute
+            exact path="/closet/:itemId"
+            clothingItem={clothingItem}
+            handleClothingItem={this.handleClothingItem}
+            component={ShowClothingItem}
+          />
+          <ProtectedRoute
+            exact path="/newclothesform"
+            component={NewClothesForm}
           />
         </Switch>
       </div>

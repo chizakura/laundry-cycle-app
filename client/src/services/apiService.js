@@ -52,10 +52,21 @@ export const signUp = async (data) => {
 
 export const getItems = async (id) => {
     try {
-        const res = await api.get(`/users/${id}/items`)
+        const res = await api.get(`/users/${id}/items`);
         const {data: {items}} = res;
 
         return items
+    } catch (err) {
+        throw err
+    }
+}
+
+export const getClothingItem = async (itemId) => {
+    try {
+        const res = await api.get(`/items/${itemId}`);
+        const {data: {item}} = res;
+
+        return item
     } catch (err) {
         throw err
     }

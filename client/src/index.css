@@ -60,3 +60,24 @@ body {
 .gap {
   margin-bottom: 30px;
 }
+
+/* ./Components/ShowClothingItem */
+.clothing-item {
+  margin: 75px;
+}
+
+.item-header {
+  display: flex;
+}
+
+.item-title {
+  flex: 1;
+}
+
+.item-button {
+  cursor: pointer;
+}
+
+.back-button {
+  color: black;
+}
