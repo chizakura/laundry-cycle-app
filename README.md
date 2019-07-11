@@ -7,8 +7,8 @@
 |7/8| Project Description | Complete |
 |7/8| Wireframes / Priority Matrix / Functional Components | Incomplete |
 |7/9| Core Application Structure (HTML, CSS, etc.) | Complete |
-|7/10| Pseudocode / actual code | Incomplete |
-|7/11| Initial Clickable Model | Incomplete |
+|7/10| Pseudocode / actual code | Complete |
+|7/11| Initial Clickable Model | Complete |
 |7/12| MVP | Incomplete |
 |7/15| Present | Incomplete |
 
@@ -100,7 +100,7 @@
 | Display list of clothes | H | 3hrs | 3hrs |
 | Add clothes | H | 2hrs | - |
 | Select care symbols | H | 5hrs | - |
-| Display ShowClothingItem page | H | 3hrs | - |
+| Display ShowClothingItem page | H | 3hrs | 2.5hrs |
 | Edit details for clothing item | M | 4.5hrs | - |
 | Delete clothes | M | 1.5hrs | - |
 | Display Washer page | H | 1.5hrs | - |
@@ -126,6 +126,7 @@ Helper functions should be generic enough that they can be reused in other appli
 | React Bootstrap | Used to add bootstrap styling in React |
 | Google Fonts | Used to match theme of application |
 | [Washicons](http://lucijanblagonic.github.io/Washicons/) | Used icons to match theme of application and for care guide |
+| Material Icons | Used to get icons for edit and delete |
 
 
 ## Code Snippet
