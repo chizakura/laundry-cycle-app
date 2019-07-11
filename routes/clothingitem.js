@@ -1,6 +1,6 @@
 const express = require('express');
 const clothingitemRouter = express.Router();
-const {ClothingItem} = require('../models/index');
+const {ClothingItem, WashOption, DryOption} = require('../models/index');
 
 clothingitemRouter.get('/', async (req, res) => {
     const items = await ClothingItem.findAll();
@@ -11,7 +11,12 @@ clothingitemRouter.get('/', async (req, res) => {
 })
 
 clothingitemRouter.get('/:id', async (req, res) => {
-    const item = await ClothingItem.findByPk(req.params.id);
+    const item = await ClothingItem.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [WashOption, DryOption]
+    });
     res.json({
         message: `clothing item with id of ${req.params.id}`,
         item: item

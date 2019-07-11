@@ -50,6 +50,10 @@ const ClothingItem = db.define('clothingitem', {
 })
 
 const WashOption = db.define('washoption', {
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     type: {
         type: Sequelize.STRING,
         allowNull: false
@@ -65,10 +69,15 @@ const WashOption = db.define('washoption', {
     canWash: {
         type: Sequelize.BOOLEAN,
         allowNull: false
-    }
+    },
+    about: Sequelize.TEXT
 })
 
 const DryOption = db.define('dryoption', {
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     type: {
         type: Sequelize.STRING,
         allowNull: false
@@ -77,14 +86,15 @@ const DryOption = db.define('dryoption', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    level: {
+    heatLevel: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    canDry: {
+    canTumbleDry: {
         type: Sequelize.BOOLEAN,
         allowNull: false
-    }
+    },
+    about: Sequelize.TEXT
 })
 
 User.hasMany(ClothingItem);
