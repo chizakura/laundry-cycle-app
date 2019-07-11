@@ -36,12 +36,16 @@ body {
 
 /* ./Components/Profile */
 .profile {
-  margin: 50px;
+  margin: 75px;
 }
 
 .profile-pic {
   height: auto;
   width: 300px;
+}
+
+.profile-text {
+  font-size: 22px;
 }
 
 /* ./Components/Closet */
