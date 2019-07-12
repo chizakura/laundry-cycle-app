@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import authService from './services/authService';
-import {login, getProfile, signUp, getItems, getClothingItem} from './services/apiService';
+import {login, getProfile, signUp, getItems, getClothingItem, getWashOptions, getDryOptions} from './services/apiService';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUpForm from './Components/SignUpForm';
@@ -20,6 +20,8 @@ class App extends Component {
   state = {
     isSignedIn: false,
     user: {},
+    washOptions: [],
+    dryOptions: [],
     clothes: [],
     clothingItem: {}
   }
@@ -27,11 +29,15 @@ class App extends Component {
   async componentDidMount() {
     try {
       const fetchedUser = await getProfile();
+      const fetchedWashOptions = await getWashOptions();
+      const fetchedDryOptions = await getDryOptions();
       const fetchedItems = await getItems(fetchedUser.id);
 
       this.setState({
         isSignedIn: authService.isAuthenticated(),
         user: fetchedUser,
+        washOptions: fetchedWashOptions,
+        dryOptions: fetchedDryOptions,
         clothes: fetchedItems
       })
     } catch (err) {
@@ -79,7 +85,7 @@ class App extends Component {
   }
 
   render() {
-    const {isSignedIn, user, clothes, clothingItem} = this.state;
+    const {isSignedIn, user, washOptions, dryOptions, clothes, clothingItem} = this.state;
     return (
       <div className="App">
         <Navbar bg="light" variant="light">
@@ -90,17 +96,16 @@ class App extends Component {
             <Nav>
               {!isSignedIn && <Nav.Item><Nav.Link as={Link} to="/login">Login</Nav.Link></Nav.Item>}
               {!isSignedIn && <Nav.Item><Nav.Link as={Link} to="/signup">Sign Up</Nav.Link></Nav.Item>}
-              {!isSignedIn && <Nav.Item><Nav.Link as={Link} to="/careguide">Care Guide</Nav.Link></Nav.Item>}
-              {isSignedIn && <Nav.Item><Nav.Link as={Link} to="/newclothesform">Add Clothes</Nav.Link></Nav.Item>}
               {isSignedIn && 
                 <NavDropdown alignRight title="Menu" id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/closet">My Closet</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/careguide">Care Guide</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/newclothesform">Add Clothes</NavDropdown.Item>
                   <NavDropdown.Divider/>
                   <NavDropdown.Item onClick={this.signOutUser}>Sign Out</NavDropdown.Item>
                 </NavDropdown>
               }
+              <Nav.Item><Nav.Link as={Link} to="/careguide">Care Guide</Nav.Link></Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -141,6 +146,8 @@ class App extends Component {
           <ProtectedRoute
             exact path="/newclothesform"
             user={user}
+            washOptions={washOptions}
+            dryOptions={dryOptions}
             component={NewClothesForm}
           />
         </Switch>

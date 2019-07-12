@@ -71,3 +71,25 @@ export const getClothingItem = async (itemId) => {
         throw err
     }
 }
+
+export const getWashOptions = async () => {
+    try {
+        const res = await api.get('/washoptions');
+        const {data: {washoptions}} = res;
+        
+        return washoptions
+    } catch (err) {
+        throw err
+    }
+}
+
+export const getDryOptions = async () => {
+    try {
+        const res = await api.get('/dryoptions');
+        const {data: {dryoptions}} = res;
+        
+        return dryoptions
+    } catch (err) {
+        throw err
+    }
+}
