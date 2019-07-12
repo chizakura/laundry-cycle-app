@@ -19,10 +19,10 @@ userRouter.get('/:id', async (req, res) => {
 })
 
 userRouter.get('/:id/items', async (req, res) => {
-    const userId = req.params.id;
+    const {id} = req.params;
     const items = await ClothingItem.findAll({
         where: {
-            userId: userId
+            userId: id
         }
     });
     res.json({
