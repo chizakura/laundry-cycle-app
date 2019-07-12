@@ -13,11 +13,12 @@ class NewClothesForm extends Component {
         dryoptionId: "",
         name: "",
         type: "",
-        color: ""
+        colorShade: ""
     }
 
     handleChange = (event) => {
         const {name, value} = event.target;
+        console.log(`Name: ${name} | Value: ${value}`)
         this.setState({
             [name]: value
         })
@@ -30,7 +31,7 @@ class NewClothesForm extends Component {
     }
 
     render() {
-        const {name, type, color} = this.state;
+        const {name, type} = this.state;
         const {washOptions, dryOptions} = this.props;
         return (
             <div className="new-clothes">
@@ -49,7 +50,12 @@ class NewClothesForm extends Component {
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="itemColor">
                                     <Form.Label>Color</Form.Label>
-                                    <Form.Control name="color" type="text" placeholder="Enter color" value={color} onChange={this.handleChange}></Form.Control>
+                                    <Form.Control name="colorShade" as="select" onChange={this.handleChange}>
+                                        <option value="">Please select a shade</option>
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="mixed">Mixed</option>
+                                    </Form.Control>
                                 </Form.Group>
                             </Form.Row>
                             <Form.Group controlId="washerOptions">
@@ -59,7 +65,7 @@ class NewClothesForm extends Component {
                                         <ButtonGroup aria-label="washer" className="button-list" onClick={this.handleChange}>
                                             {washOptions.map(option => {
                                                 return (
-                                                    <Button key={option.id} name="washoptionId" variant="light" value={option.id}><i className={`icon icon-${option.name}`}></i></Button>
+                                                    <Button key={option.id} name="washoptionId" variant="light" value={option.id} className={`icon icon-${option.name}`}></Button>
                                                 )
                                             })}
                                         </ButtonGroup>
@@ -73,7 +79,7 @@ class NewClothesForm extends Component {
                                         <ButtonGroup aria-label="dryer" className="button-list" onClick={this.handleChange}>
                                             {dryOptions.map(option => {
                                                 return (
-                                                    <Button key={option.id} name="dryoptionId" variant="light" value={option.id}><i className={`icon icon-${option.name}`}></i></Button>
+                                                    <Button key={option.id} name="dryoptionId" variant="light" value={option.id} className={`icon icon-${option.name}`}></Button>
                                                 )
                                             })}
                                         </ButtonGroup>
