@@ -33,9 +33,11 @@ const seed = async () => {
         await DryOption.bulkCreate(dryOptions);
 
         const item = await ClothingItem.create({
-            name: "My favorite shirt",
+            description: "My favorite shirt",
             type: "t-shirt",
-            colorShade: "mixed",
+            shadeCategory: "mixed",
+            material: "cotton",
+            brand: "Gap",
             washoptionId: 5,
             dryoptionId: 2
         })

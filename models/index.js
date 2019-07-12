@@ -36,17 +36,20 @@ User.beforeCreate(async (user, options) => {
 })
 
 const ClothingItem = db.define('clothingitem', {
-    name: {
+    description: {
         type: Sequelize.STRING,
         allowNull: false
     },
     type: {
-        type: Sequelize.STRING
-    },
-    colorShade: {
         type: Sequelize.STRING,
         allowNull: false
-    }
+    },
+    shadeCategory: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    material: Sequelize.STRING,
+    brand: Sequelize.STRING
 })
 
 const WashOption = db.define('washoption', {
