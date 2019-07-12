@@ -7,6 +7,8 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 class NewClothesForm extends Component {
     state = {
@@ -53,18 +55,18 @@ class NewClothesForm extends Component {
         return (
             <div className="new-clothes">
                 {redirect ? <Redirect to="/closet"/> : null}
-                <Card style={{width: '30rem'}}>
+                <Card style={{width: '35rem'}}>
                     <Card.Header>Create New Clothing Item</Card.Header>
                     <Card.Body>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group controlId="itemDescription">
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control name="description" type="text" placeholder="i.e. blue shirt, lemon pattern blouse, etc." value={description} onChange={this.handleChange}></Form.Control>
+                                <Form.Control name="description" type="text" placeholder="i.e. blue shirt, lemon pattern blouse, etc." value={description} onChange={this.handleChange} required></Form.Control>
                             </Form.Group>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="itemType">
                                     <Form.Label>Type</Form.Label>
-                                    <Form.Control name="type" as="select" onChange={this.handleChange}>
+                                    <Form.Control name="type" as="select" onChange={this.handleChange} required>
                                         <option value="">Please select a type</option>
                                         <option value="shirt">Shirt</option>
                                         <option value="pants">Pants</option>
@@ -77,7 +79,7 @@ class NewClothesForm extends Component {
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="itemShade">
                                     <Form.Label>Shade</Form.Label>
-                                    <Form.Control name="shadeCategory" as="select" onChange={this.handleChange}>
+                                    <Form.Control name="shadeCategory" as="select" onChange={this.handleChange} required>
                                         <option value="">Please select a shade</option>
                                         <option value="light">Light</option>
                                         <option value="dark">Dark</option>
@@ -102,7 +104,13 @@ class NewClothesForm extends Component {
                                         <ButtonGroup aria-label="washer" className="button-list" onClick={this.handleChange}>
                                             {washOptions.map(option => {
                                                 return (
-                                                    <Button key={option.id} name="washoptionId" variant="light" value={option.id} className={`icon icon-${option.name}`}></Button>
+                                                    <OverlayTrigger
+                                                        key={option.id}
+                                                        placement="top" 
+                                                        overlay={<Tooltip id="tooltip-top">{option.about}</Tooltip>}
+                                                    >
+                                                        <Button key={option.id} name="washoptionId" variant="light" value={option.id} className={`icon icon-${option.name} icon-size`}></Button>
+                                                    </OverlayTrigger>
                                                 )
                                             })}
                                         </ButtonGroup>
@@ -116,7 +124,13 @@ class NewClothesForm extends Component {
                                         <ButtonGroup aria-label="dryer" className="button-list" onClick={this.handleChange}>
                                             {dryOptions.map(option => {
                                                 return (
-                                                    <Button key={option.id} name="dryoptionId" variant="light" value={option.id} className={`icon icon-${option.name}`}></Button>
+                                                    <OverlayTrigger
+                                                        key={option.id}
+                                                        placement="top"
+                                                        overlay={<Tooltip id="tooltip-top">{option.about}</Tooltip>}
+                                                    >
+                                                        <Button key={option.id} name="dryoptionId" variant="light" value={option.id} className={`icon icon-${option.name} icon-size`}></Button>
+                                                    </OverlayTrigger>
                                                 )
                                             })}
                                         </ButtonGroup>
