@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-// import axios from 'axios';
+import {Redirect} from 'react-router-dom';
+import axios from 'axios';
 import '../Washicons-master/washicons/styles.css';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
@@ -11,51 +12,87 @@ class NewClothesForm extends Component {
     state = {
         washoptionId: "",
         dryoptionId: "",
-        name: "",
+        description: "",
         type: "",
-        colorShade: ""
+        shadeCategory: "",
+        material: "",
+        brand: "",
+        redirect: false
     }
 
     handleChange = (event) => {
         const {name, value} = event.target;
-        console.log(`Name: ${name} | Value: ${value}`)
+        // console.log(`${name} | ${value}`)
         this.setState({
             [name]: value
         })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
         const {user} = this.props;
-        console.log(user.id)
+        const {description, type, shadeCategory, material, brand, washoptionId, dryoptionId} = this.state;
+        await axios.post(`http://localhost:4567/items/create`, {
+            description,
+            type,
+            shadeCategory,
+            material,
+            brand,
+            userId: user.id,
+            washoptionId,
+            dryoptionId
+        });
+        this.setState({
+            redirect: true
+        })
     }
 
     render() {
-        const {name, type} = this.state;
+        const {description, material, brand, redirect} = this.state;
         const {washOptions, dryOptions} = this.props;
         return (
             <div className="new-clothes">
+                {redirect ? <Redirect to="/closet"/> : null}
                 <Card style={{width: '30rem'}}>
                     <Card.Header>Create New Clothing Item</Card.Header>
                     <Card.Body>
                         <Form onSubmit={this.handleSubmit}>
-                            <Form.Group controlId="itemName">
-                                <Form.Label>Name</Form.Label>
-                                <Form.Control name="name" type="text" placeholder="i.e. my favorite shirt" value={name} onChange={this.handleChange}></Form.Control>
+                            <Form.Group controlId="itemDescription">
+                                <Form.Label>Description</Form.Label>
+                                <Form.Control name="description" type="text" placeholder="i.e. blue shirt, lemon pattern blouse, etc." value={description} onChange={this.handleChange}></Form.Control>
                             </Form.Group>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="itemType">
                                     <Form.Label>Type</Form.Label>
-                                    <Form.Control name="type" type="text" placeholder="i.e. t-shirt, blouse, etc." value={type} onChange={this.handleChange}></Form.Control>
+                                    <Form.Control name="type" as="select" onChange={this.handleChange}>
+                                        <option value="">Please select a type</option>
+                                        <option value="shirt">Shirt</option>
+                                        <option value="pants">Pants</option>
+                                        <option value="blouse">Blouse</option>
+                                        <option value="shorts">Shorts</option>
+                                        <option value="skirt">Skirt</option>
+                                        <option value="socks">Socks</option>
+                                        <option value="cardigan">Cardigan</option>
+                                    </Form.Control>
                                 </Form.Group>
-                                <Form.Group as={Col} controlId="itemColor">
-                                    <Form.Label>Color</Form.Label>
-                                    <Form.Control name="colorShade" as="select" onChange={this.handleChange}>
+                                <Form.Group as={Col} controlId="itemShade">
+                                    <Form.Label>Shade</Form.Label>
+                                    <Form.Control name="shadeCategory" as="select" onChange={this.handleChange}>
                                         <option value="">Please select a shade</option>
                                         <option value="light">Light</option>
                                         <option value="dark">Dark</option>
                                         <option value="mixed">Mixed</option>
                                     </Form.Control>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="itemMaterial">
+                                    <Form.Label>Material</Form.Label>
+                                    <Form.Control name="material" type="text" placeholder="Enter type of material" value={material} onChange={this.handleChange}></Form.Control>
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="itemBrand">
+                                    <Form.Label>Brand</Form.Label>
+                                    <Form.Control name="brand" type="text" placeholder="Enter brand" value={brand} onChange={this.handleChange}></Form.Control>
                                 </Form.Group>
                             </Form.Row>
                             <Form.Group controlId="washerOptions">
