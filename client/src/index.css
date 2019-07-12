@@ -61,6 +61,12 @@ body {
   margin-bottom: 30px;
 }
 
+.clothing-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
 /* ./Components/ShowClothingItem */
 .clothing-item {
   margin: 75px;

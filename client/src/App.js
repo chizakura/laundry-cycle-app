@@ -23,7 +23,8 @@ class App extends Component {
     washOptions: [],
     dryOptions: [],
     clothes: [],
-    clothingItem: {}
+    clothingItem: {},
+    itemWashOptions: {}
   }
 
   async componentDidMount() {
@@ -31,14 +32,12 @@ class App extends Component {
       const fetchedUser = await getProfile();
       const fetchedWashOptions = await getWashOptions();
       const fetchedDryOptions = await getDryOptions();
-      const fetchedItems = await getItems(fetchedUser.id);
 
       this.setState({
         isSignedIn: authService.isAuthenticated(),
         user: fetchedUser,
         washOptions: fetchedWashOptions,
-        dryOptions: fetchedDryOptions,
-        clothes: fetchedItems
+        dryOptions: fetchedDryOptions
       })
     } catch (err) {
       console.log("Issue fetching token")
@@ -73,7 +72,8 @@ class App extends Component {
     authService.signOut()
     this.setState({
       isSignedIn: false,
-      user: {}
+      user: {},
+      clothes: []
     })
   }
 
@@ -81,6 +81,13 @@ class App extends Component {
     const fetchedItem = await getClothingItem(itemId);
     this.setState({
       clothingItem: fetchedItem
+    })
+  }
+
+  handleClothes = async (userId) => {
+    const fetchedClothes = await getItems(userId);
+    this.setState({
+      clothes: fetchedClothes
     })
   }
 
@@ -135,6 +142,7 @@ class App extends Component {
           <ProtectedRoute
             exact path="/closet"
             clothes={clothes}
+            handleClothes={this.handleClothes}
             component={Closet}
           />
           <ProtectedRoute

@@ -30,6 +30,7 @@ export const getProfile = async () => {
         const res = await api.get('/app/profile');
         const {data: {user}} = res;
 
+        localStorage.setItem('userId', user.id)
         console.log(res.data);
         return user
     } catch (err) {
