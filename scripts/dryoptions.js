@@ -41,7 +41,7 @@ const dryData = {
             about: "A machine dryer may be regularly used at a maximum of Medium Heat setting."
         },
         {
-            name: "wh-drying-tumble-medium-heat-permanent-press",
+            name: "wh-drying-tumble-medium-heat-permanent-p",
             type: "tumble dry",
             setting: "permanent press",
             heatLevel: "medium",

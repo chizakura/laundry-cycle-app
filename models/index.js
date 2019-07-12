@@ -43,7 +43,7 @@ const ClothingItem = db.define('clothingitem', {
     type: {
         type: Sequelize.STRING
     },
-    color: {
+    colorShade: {
         type: Sequelize.STRING,
         allowNull: false
     }

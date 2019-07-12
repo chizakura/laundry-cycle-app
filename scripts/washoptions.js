@@ -209,7 +209,7 @@ const washData = {
             about: "Initial water temperature should not exceed 70C or 160F."
         },
         {
-            name: "wh-washing-95deg",
+            name: "wh-washing-90deg",
             type: "machine wash",
             cycle: "normal",
             waterTemp: "hot",

@@ -15,7 +15,8 @@ const seed = async () => {
             type: option.type,
             cycle: option.cycle,
             waterTemp: option.waterTemp,
-            canWash: option.canWash
+            canWash: option.canWash,
+            about: option.about
         }));
 
         await WashOption.bulkCreate(washOptions);
@@ -34,7 +35,7 @@ const seed = async () => {
         const item = await ClothingItem.create({
             name: "My favorite shirt",
             type: "t-shirt",
-            color: "dusty rose",
+            colorShade: "mixed",
             washoptionId: 5,
             dryoptionId: 2
         })
