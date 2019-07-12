@@ -12,10 +12,14 @@ class Profile extends Component {
                 <Card>
                     <Card.Header></Card.Header>
                     <Card.Body>
-                        <Card.Title><h3>{user.name}</h3></Card.Title>
                         <Row>
-                            <Col><Card.Img className="profile-pic" src={profilePic}/></Col>
-                            <Col><Card.Text className="text-left profile-text">Number of clothing items: {count}</Card.Text></Col>
+                            <Col>
+                                <Card.Title><h3>{user.name}</h3></Card.Title>
+                                <Card.Img className="profile-pic" src={profilePic}/>
+                            </Col>
+                            <Col>
+                                <Card.Text className="text-left profile-text">Number of clothing items: {count}</Card.Text>
+                            </Col>
                         </Row>
                     </Card.Body>
                 </Card>
