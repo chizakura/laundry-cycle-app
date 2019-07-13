@@ -5,7 +5,7 @@
 | Day | Deliverable | Status |
 |---|---| ---|
 |7/8| Project Description | Complete |
-|7/8| Wireframes / Priority Matrix / Functional Components | Incomplete |
+|7/8| Wireframes / Priority Matrix / Functional Components | Complete |
 |7/9| Core Application Structure (HTML, CSS, etc.) | Complete |
 |7/10| Pseudocode / actual code | Complete |
 |7/11| Initial Clickable Model | Complete |
@@ -32,10 +32,13 @@
 | [Closet Page](https://res.cloudinary.com/chizakura/image/upload/v1562765911/Project%204/Laundry_Cycle_Wireframe_05.png) | Page that displays list of all clothing items added by the user |
 | [Show Clothing Item Page](https://res.cloudinary.com/chizakura/image/upload/v1562811015/Project%204/Laundry_Cycle_Wireframe_06.png) | Page that displays info for a specific clothing item |
 | [New Clothes Form Page](https://res.cloudinary.com/chizakura/image/upload/v1562860166/Project%204/Laundry_Cycle_Wireframe_07.png) | Form that allows the user to add new clothes |
+| [Washer Page](https://res.cloudinary.com/chizakura/image/upload/v1562972984/Project%204/Laundry_Cycle_Wireframe_08.png) | Page that displays clothes separated by their wash options |
+| [Dryer Page](https://res.cloudinary.com/chizakura/image/upload/v1562972988/Project%204/Laundry_Cycle_Wireframe_09.png) | Page that displays clothes separated by their dry options |
+| [Care Guide](https://res.cloudinary.com/chizakura/image/upload/v1562973148/Project%204/Laundry_Cycle_Wireframe_10.png) | Displays laundry care symbols and what they mean |
 
 ## Priority Matrix
 
-- Laundry Care Priority Matrix
+- [Laundry Care Priority Matrix](https://res.cloudinary.com/chizakura/image/upload/v1562987664/Project%204/Laundry_Cycle_Priority_Matrix.png)
 
 ### MVP/PostMVP - 5min
 
@@ -98,9 +101,10 @@
 | Sign out existing user | H | 2.5hrs | 1hr |
 | Display Profile page of logged in user | H | 3hrs | 1.5hrs |
 | Display list of clothes | H | 3hrs | 3hrs |
-| Add clothes | H | 2hrs | - |
-| Select care symbols | H | 5hrs | - |
+| Add clothes | H | 2hrs | 2.5hrs |
+| Select care symbols | H | 5hrs | 4hrs |
 | Display ShowClothingItem page | H | 3hrs | 2.5hrs |
+| Display options on ShowClothingItem page | H | 3hrs | - |
 | Edit details for clothing item | M | 4.5hrs | - |
 | Delete clothes | M | 1.5hrs | - |
 | Display Washer page | H | 1.5hrs | - |
@@ -108,7 +112,7 @@
 | Display Dryer page | H | 1.5hrs | - |
 | Sort list of clothes by drying options | H | 3.5hrs | - |
 | Display CareGuide page | M | 5hrs | - |
-| Total |  | 51hrs | - |
+| Total |  | 54hrs | - |
 
 ## Helper Functions
 Helper functions should be generic enough that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
@@ -148,8 +152,7 @@ function reverse(string) {
 | Have one Book component | Split that component into BookInfo and BookInteraction as the component grew too complicated | 
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
-
 #### #1
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ISSUE**: Closet page not showing added clothing item after pressing submit on the NewClothesForm page.                              
+
+**RESOLUTION**: Added a ComponentDidMount to the Closet page to get the list of clothes.
