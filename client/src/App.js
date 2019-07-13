@@ -16,6 +16,7 @@ import ProtectedRoute from './Components/ProtectedRoute';
 import ShowClothingItem from './Components/ShowClothingItem';
 import NewClothesForm from './Components/NewClothesForm';
 import Washer from './Components/Washer';
+import Dryer from './Components/Dryer';
 
 class App extends Component {
   state = {
@@ -110,6 +111,7 @@ class App extends Component {
                   <NavDropdown.Item as={Link} to="/closet">My Closet</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/newclothesform">Add Clothes</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/washer">Washer</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/dryer">Dryer</NavDropdown.Item>
                   <NavDropdown.Divider/>
                   <NavDropdown.Item onClick={this.signOutUser}>Sign Out</NavDropdown.Item>
                 </NavDropdown>
@@ -163,6 +165,10 @@ class App extends Component {
           <ProtectedRoute
             exact path="/washer"
             component={Washer}
+          />
+          <ProtectedRoute
+            exact path="/dryer"
+            component={Dryer}
           />
         </Switch>
       </div>
