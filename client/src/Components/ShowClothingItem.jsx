@@ -34,20 +34,20 @@ class ShowClothingItem extends Component {
                     <Card.Body>
                         <Row className="gap">
                             <Col><Card.Img className="profile-pic" src={shirt}/></Col>
-                            <Col>
-                                <Card.Text className="text-left profile-text">
+                            <Col className="text-left profile-text">
+                                <Card.Text>
                                     Shade Category: {clothingItem.colorShade}
                                     <Badge size="sm"><i onClick={this.editButton} className="material-icons item-button">edit</i></Badge>
                                 </Card.Text>
-                                <Card.Text className="text-left profile-text">
+                                <Card.Text>
                                     Type: {clothingItem.type}
                                     <Badge size="sm"><i onClick={this.editButton} className="material-icons item-button">edit</i></Badge>
                                 </Card.Text>
-                                <Card.Text className="text-left profile-text">
+                                <Card.Text>
                                     Material: {clothingItem.material}
                                     <Badge size="sm"><i onClick={this.editButton} className="material-icons item-button">edit</i></Badge>
                                 </Card.Text>
-                                <Card.Text className="text-left profile-text">
+                                <Card.Text>
                                     Brand: {clothingItem.brand}
                                     <Badge size="sm"><i onClick={this.editButton} className="material-icons item-button">edit</i></Badge>
                                 </Card.Text>
