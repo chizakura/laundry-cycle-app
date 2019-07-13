@@ -101,15 +101,16 @@
 | Sign out existing user | H | 2.5hrs | 1hr |
 | Display Profile page of logged in user | H | 3hrs | 1.5hrs |
 | Display list of clothes | H | 3hrs | 3hrs |
+| Display NewClothesForm page | 7/11 | 11:30-1pm | 1.5hrs |
 | Add clothes | H | 2hrs | 2.5hrs |
 | Select care symbols | H | 5hrs | 4hrs |
 | Display ShowClothingItem page | H | 3hrs | 2.5hrs |
-| Display options on ShowClothingItem page | H | 3hrs | - |
+| Display options on ShowClothingItem page | H | 3hrs | 3.5hrs |
 | Edit details for clothing item | M | 4.5hrs | - |
 | Delete clothes | M | 1.5hrs | - |
-| Display Washer page | H | 1.5hrs | - |
-| Sort list of clothes by color shades | H | 5.5hrs | - |
-| Display Dryer page | H | 1.5hrs | - |
+| Display Washer page | H | 1.5hrs | 1hr |
+| Sort list of clothes by washing options | H | 5.5hrs | - |
+| Display Dryer page | H | 1.5hrs | 0.5hrs |
 | Sort list of clothes by drying options | H | 3.5hrs | - |
 | Display CareGuide page | M | 5hrs | - |
 | Total |  | 54hrs | - |
@@ -156,3 +157,8 @@ function reverse(string) {
 **ISSUE**: Closet page not showing added clothing item after pressing submit on the NewClothesForm page.                              
 
 **RESOLUTION**: Added a ComponentDidMount to the Closet page to get the list of clothes.
+
+#### #2
+**ISSUE**: Unable to access wash option and dry option objects that are nested in clothing item. 
+
+**RESOLUTION**: From this [link](https://hackernoon.com/accessing-nested-objects-in-javascript-f02f1bd6387f), used an array reduce method to safely access nested objects.
