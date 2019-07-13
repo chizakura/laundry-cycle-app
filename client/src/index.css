@@ -88,6 +88,18 @@ body {
   color: black;
 }
 
+.symbol-size {
+  font-size: 50px;
+}
+
+.symbol-placement {
+  line-height: 10em;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
 /* ./Components/NewClothesForm */
 .new-clothes {
   display: flex;

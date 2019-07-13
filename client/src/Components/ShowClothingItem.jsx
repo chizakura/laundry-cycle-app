@@ -1,3 +1,4 @@
+// Got getNestedObject function from https://hackernoon.com/accessing-nested-objects-in-javascript-f02f1bd6387f
 import React, {Component} from 'react';
 import shirt from '../Images/shirt.png';
 import {Link} from 'react-router-dom';
@@ -21,8 +22,14 @@ class ShowClothingItem extends Component {
         console.log('delete')
     }
 
+    getNestedObject = (nestedObj, pathArr) => {
+        return pathArr.reduce((obj, key) =>
+            (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj)
+    }
+
     render() {
         const {clothingItem} = this.props;
+        const {getNestedObject} = this;
         return (
             <div className="clothing-item">
                 <Card>
@@ -60,7 +67,20 @@ class ShowClothingItem extends Component {
                                         <Accordion.Toggle as={Card.Header} eventKey="0">Washer Option</Accordion.Toggle>
                                         <Accordion.Collapse eventKey="0">
                                             <Card.Body>
-                                                <Card.Text>{clothingItem.washoptionId}</Card.Text>
+                                                <Row className="gap">
+                                                    <Col className="symbol-placement">
+                                                        <Card.Text><i className={`icon icon-${getNestedObject(clothingItem, ['washoption', 'name'])} symbol-size`}></i></Card.Text>
+                                                    </Col>
+                                                    <Col className="text-left capitalize">
+                                                        <Card.Text>{getNestedObject(clothingItem, ['washoption', 'type'])}</Card.Text>
+                                                        <Card.Text>Cycle: {getNestedObject(clothingItem, ['washoption', 'cycle'])}</Card.Text>
+                                                        <Card.Text>Water Temperature: {getNestedObject(clothingItem, ['washoption', 'waterTemp'])}</Card.Text>
+                                                        <Card.Text>Washable: {getNestedObject(clothingItem, ['washoption', 'canWash']) ? 'yes' : 'no'}</Card.Text>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Card.Text className="text-left">Symbol Info: {getNestedObject(clothingItem, ['washoption', 'about'])}</Card.Text>
+                                                </Row>
                                             </Card.Body>
                                         </Accordion.Collapse>
                                     </Card>
@@ -72,7 +92,20 @@ class ShowClothingItem extends Component {
                                         <Accordion.Toggle as={Card.Header} eventKey="0">Dry Option</Accordion.Toggle>
                                         <Accordion.Collapse eventKey="0">
                                             <Card.Body>
-                                                <Card.Text>{clothingItem.dryoptionId}</Card.Text>
+                                                <Row className="gap">
+                                                    <Col className="symbol-placement">
+                                                        <Card.Text><i className={`icon icon-${getNestedObject(clothingItem, ['dryoption', 'name'])} symbol-size`}></i></Card.Text>
+                                                    </Col>
+                                                    <Col className="text-left capitalize">
+                                                        <Card.Text>{getNestedObject(clothingItem, ['dryoption', 'type'])}</Card.Text>
+                                                        <Card.Text>Setting: {getNestedObject(clothingItem, ['dryoption', 'setting'])}</Card.Text>
+                                                        <Card.Text>Heat Level: {getNestedObject(clothingItem, ['dryoption', 'heatLevel'])}</Card.Text>
+                                                        <Card.Text>Can Tumble Dry?: {getNestedObject(clothingItem, ['dryoption', 'canTumbleDry']) ? 'yes' : 'no'}</Card.Text>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Card.Text className="text-left">Symbol Info: {getNestedObject(clothingItem, ['dryoption', 'about'])}</Card.Text>
+                                                </Row>
                                             </Card.Body>
                                         </Accordion.Collapse>
                                     </Card>
