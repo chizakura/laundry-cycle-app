@@ -1,10 +1,10 @@
 // Got getNestedObject function from https://hackernoon.com/accessing-nested-objects-in-javascript-f02f1bd6387f
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Table from 'react-bootstrap/Table';
-import {Link} from 'react-router-dom';
 
 class Washer extends Component {
     componentDidMount(){
@@ -160,7 +160,7 @@ class Washer extends Component {
                                     <Card.Body className="profile-text">
                                         <ListGroup>
                                             {dontWash.map(item => {
-                                                return <ListGroup.Item key={item.id}>{item.description}</ListGroup.Item>
+                                                return <ListGroup.Item key={item.id}><Link to={`/closet/${item.id}`}>{item.description}</Link></ListGroup.Item>
                                             })}
                                         </ListGroup>
                                     </Card.Body>
