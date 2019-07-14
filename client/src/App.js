@@ -164,6 +164,8 @@ class App extends Component {
           />
           <ProtectedRoute
             exact path="/washer"
+            clothes={clothes}
+            handleClothes={this.handleClothes}
             component={Washer}
           />
           <ProtectedRoute
