@@ -19,11 +19,11 @@ class Profile extends Component {
                     <Card.Header></Card.Header>
                     <Card.Body>
                         <Row>
-                            <Col className="gap">
+                            <Col className="gap" xs={12} md={6}>
                                 <Card.Title><h3>{user.name}</h3></Card.Title>
                                 <Card.Img className="profile-pic" src={profilePic}/>
                             </Col>
-                            <Col>
+                            <Col xs={12} md={6}>
                                 <Card.Text className="text-left profile-text">Number of clothing items: {count}</Card.Text>
                             </Col>
                         </Row>
