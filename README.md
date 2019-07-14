@@ -62,7 +62,7 @@
 - [ ] Add notes for a clothing item
 - [ ] Show full guide on how to do laudry
 - [ ] Organize clothes for bleaching
-- [ ] Organize clothes for drycleaning
+- [ ] Organize clothes for dry cleaning
 - [ ] Organize clothes for ironing
 
 ## Architectural Design
@@ -86,7 +86,9 @@
 | ShowClothingItem | This will render the details of a clothing item |
 | Washer | This will render a list of clothes and their washing options |
 | Dryer | This will render a list of clothes and their drying options |
+| ShowTable | This will render the tables within the Washer and Dryer pages |
 | CareGuide | This will render guide for care symbols |
+| GuideSection | This will render a section for the CareGuide page |
 
 
 ## Time Frames
@@ -101,7 +103,7 @@
 | Sign out existing user | H | 2.5hrs | 1hr |
 | Display Profile page of logged in user | H | 3hrs | 1.5hrs |
 | Display list of clothes | H | 3hrs | 3hrs |
-| Display NewClothesForm page | 7/11 | 11:30-1pm | 1.5hrs |
+| Display NewClothesForm page | H | 2.5hrs | 1.5hrs |
 | Add clothes | H | 2hrs | 2.5hrs |
 | Select care symbols | H | 5hrs | 4hrs |
 | Display ShowClothingItem page | H | 3hrs | 2.5hrs |
@@ -112,7 +114,7 @@
 | Display Dryer page | H | 1.5hrs | 0.5hrs |
 | Sort list of clothes by washing options | H | 5.5hrs | 4.5hrs |
 | Sort list of clothes by drying options | H | 3.5hrs | 1hr |
-| Display CareGuide page | M | 5hrs | - |
+| Display CareGuide page | M | 5hrs | 2.5hrs |
 | Total |  | 54hrs | - |
 
 ## Helper Functions
