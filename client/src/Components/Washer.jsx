@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Table from 'react-bootstrap/Table';
+import ShowTable from './ShowTable';
 
 class Washer extends Component {
     componentDidMount(){
@@ -30,6 +31,7 @@ class Washer extends Component {
     render() {
         const {clothes} = this.props;
         const {getNestedObject, filterArr, filterArrExtra} = this;
+        const headings = ['Clothing Item', 'Cycle', 'Water Temperature'];
         const machineWashLights = filterArrExtra(clothes, 'shadeCategory', 'light', 'washoption', 'type', 'machine wash');
         const machineWashDarks = filterArrExtra(clothes, 'shadeCategory', 'dark', 'washoption', 'type', 'machine wash');
         const machineWashMixed = filterArrExtra(clothes, 'shadeCategory', 'mixed', 'washoption', 'type', 'machine wash');
@@ -50,76 +52,40 @@ class Washer extends Component {
                                         <Card className="gap">
                                             <Card.Header>Lights</Card.Header>
                                             <Card.Body>
-                                                <Table bordered hover>
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Clothing Item</th>
-                                                            <th>Cycle</th>
-                                                            <th>Water Temperature</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {machineWashLights.map(item => {
-                                                            return (
-                                                                <tr key={item.id}>
-                                                                    <td><Link to={`/closet/${item.id}`}>{item.description}</Link></td>
-                                                                    <td>{getNestedObject(item, ['washoption', 'cycle'])}</td>
-                                                                    <td>{getNestedObject(item, ['washoption', 'waterTemp'])}</td>
-                                                                </tr>
-                                                            )
-                                                        })}
-                                                    </tbody>
-                                                </Table>
+                                                <ShowTable
+                                                    tableHeading={headings}
+                                                    tableData={machineWashLights}
+                                                    getNestedObject={getNestedObject}
+                                                    option={'washoption'}
+                                                    keyOne={'cycle'}
+                                                    keyTwo={'waterTemp'}
+                                                />
                                             </Card.Body>
                                         </Card>
                                         <Card className="gap">
                                             <Card.Header>Darks</Card.Header>
                                             <Card.Body>
-                                                <Table bordered hover>
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Clothing Item</th>
-                                                            <th>Cycle</th>
-                                                            <th>Water Temperature</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {machineWashDarks.map(item => {
-                                                            return (
-                                                                <tr key={item.id}>
-                                                                    <td><Link to={`/closet/${item.id}`}>{item.description}</Link></td>
-                                                                    <td>{getNestedObject(item, ['washoption', 'cycle'])}</td>
-                                                                    <td>{getNestedObject(item, ['washoption', 'waterTemp'])}</td>
-                                                                </tr>
-                                                            )
-                                                        })}
-                                                    </tbody>
-                                                </Table>
+                                                <ShowTable
+                                                    tableHeading={headings}
+                                                    tableData={machineWashDarks}
+                                                    getNestedObject={getNestedObject}
+                                                    option={'washoption'}
+                                                    keyOne={'cycle'}
+                                                    keyTwo={'waterTemp'}
+                                                />
                                             </Card.Body>
                                         </Card>
                                         <Card className="gap">
                                             <Card.Header>Mixed</Card.Header>
                                             <Card.Body>
-                                                <Table bordered hover>
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Clothing Item</th>
-                                                            <th>Cycle</th>
-                                                            <th>Water Temperature</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {machineWashMixed.map(item => {
-                                                            return (
-                                                                <tr key={item.id}>
-                                                                    <td><Link to={`/closet/${item.id}`}>{item.description}</Link></td>
-                                                                    <td>{getNestedObject(item, ['washoption', 'cycle'])}</td>
-                                                                    <td>{getNestedObject(item, ['washoption', 'waterTemp'])}</td>
-                                                                </tr>
-                                                            )
-                                                        })}
-                                                    </tbody>
-                                                </Table>
+                                                <ShowTable
+                                                    tableHeading={headings}
+                                                    tableData={machineWashMixed}
+                                                    getNestedObject={getNestedObject}
+                                                    option={'washoption'}
+                                                    keyOne={'cycle'}
+                                                    keyTwo={'waterTemp'}
+                                                />
                                             </Card.Body>
                                         </Card>
                                     </Card.Body>
@@ -131,7 +97,7 @@ class Washer extends Component {
                                 <Accordion.Toggle as={Card.Header} eventKey="0"><h3>Hand Wash</h3></Accordion.Toggle>
                                 <Accordion.Collapse eventKey="0">
                                     <Card.Body className="profile-text">
-                                        <Table bordered hover>
+                                        <Table bordered hover responsive>
                                             <thead>
                                                 <tr>
                                                     <th>Clothing Item</th>
