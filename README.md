@@ -109,19 +109,16 @@
 | Edit details for clothing item | M | 4.5hrs | - |
 | Delete clothes | M | 1.5hrs | - |
 | Display Washer page | H | 1.5hrs | 1hr |
-| Sort list of clothes by washing options | H | 5.5hrs | - |
 | Display Dryer page | H | 1.5hrs | 0.5hrs |
-| Sort list of clothes by drying options | H | 3.5hrs | - |
+| Sort list of clothes by washing options | H | 5.5hrs | 4.5hrs |
+| Sort list of clothes by drying options | H | 3.5hrs | 1hr |
 | Display CareGuide page | M | 5hrs | - |
 | Total |  | 54hrs | - |
 
 ## Helper Functions
-Helper functions should be generic enough that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
-
-#### SAMPLE.....
 | Function | Description | 
 | --- | --- |  
-| Capitalize | This will capitalize the first letter in a string of text | 
+| getNestedObject | This will get access to values nested in objects | 
 
 ## Additional Libraries
 | Library | What it Does | 
@@ -129,8 +126,8 @@ Helper functions should be generic enough that they can be reused in other appli
 | Bootstrap | Used to adding styling to application | 
 | React Bootstrap | Used to add bootstrap styling in React |
 | Google Fonts | Used to match theme of application |
-| [Washicons](http://lucijanblagonic.github.io/Washicons/) | Used icons to match theme of application and for care guide |
 | Material Icons | Used to get icons to add more style to application |
+| [Washicons](http://lucijanblagonic.github.io/Washicons/) | Used icons to match theme of application and for care guide |
 
 
 ## Code Snippet
@@ -154,9 +151,9 @@ function reverse(string) {
 
 ## Issues and Resolutions
 #### #1
-**ISSUE**: Closet page not showing added clothing item after pressing submit on the NewClothesForm page.                              
+**ISSUE**: Closet page was not showing added clothing items after pressing submit on the NewClothesForm page and redirecting.                              
 
-**RESOLUTION**: Added a ComponentDidMount to the Closet page to get the list of clothes.
+**RESOLUTION**: Added a ComponentDidMount to the Closet page to get the list of clothes every time a user goes to the page.
 
 #### #2
 **ISSUE**: Unable to access wash option and dry option objects that are nested in clothing item. 
