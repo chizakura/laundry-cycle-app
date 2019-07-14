@@ -30,17 +30,23 @@ class App extends Component {
     itemWashOptions: {}
   }
 
+  getOptions = async () => {
+    const fetchedWashOptions = await axios('http://localhost:4567/washoptions');
+    const fetchedDryOptions = await axios('http://localhost:4567/dryoptions');
+    this.setState({
+      washOptions: fetchedWashOptions.data.washoptions,
+      dryOptions: fetchedDryOptions.data.dryoptions
+    })
+  }
+
   async componentDidMount() {
     try {
       const fetchedUser = await getProfile();
-      const fetchedWashOptions = await axios('http://localhost:4567/washoptions');
-      const fetchedDryOptions = await axios('http://localhost:4567/dryoptions');
+      this.getOptions();
 
       this.setState({
         isSignedIn: authService.isAuthenticated(),
-        user: fetchedUser,
-        washOptions: fetchedWashOptions.data.washoptions,
-        dryOptions: fetchedDryOptions.data.dryoptions
+        user: fetchedUser
       })
     } catch (err) {
       console.log("Issue fetching token")
@@ -142,6 +148,7 @@ class App extends Component {
               {...props}
               washOptions={washOptions}
               dryOptions={dryOptions}
+              getOptions={this.getOptions}
             />
           )}/>
           <ProtectedRoute

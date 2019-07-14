@@ -133,3 +133,14 @@ body {
   justify-content: center;
   margin: 5vh;
 }
+
+/* ./Components/CareGuide */
+.guide {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.symbol-guide-placement {
+  line-height: 8em;
+}
