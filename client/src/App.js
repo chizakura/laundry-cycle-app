@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
+import axios from 'axios';
 import logo from './Images/washing-machine.png';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import authService from './services/authService';
-import {login, getProfile, signUp, getItems, getClothingItem, getWashOptions, getDryOptions} from './services/apiService';
+import {login, getProfile, signUp, getItems, getClothingItem} from './services/apiService';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUpForm from './Components/SignUpForm';
@@ -32,14 +33,14 @@ class App extends Component {
   async componentDidMount() {
     try {
       const fetchedUser = await getProfile();
-      const fetchedWashOptions = await getWashOptions();
-      const fetchedDryOptions = await getDryOptions();
+      const fetchedWashOptions = await axios('http://localhost:4567/washoptions');
+      const fetchedDryOptions = await axios('http://localhost:4567/dryoptions');
 
       this.setState({
         isSignedIn: authService.isAuthenticated(),
         user: fetchedUser,
-        washOptions: fetchedWashOptions,
-        dryOptions: fetchedDryOptions
+        washOptions: fetchedWashOptions.data.washoptions,
+        dryOptions: fetchedDryOptions.data.dryoptions
       })
     } catch (err) {
       console.log("Issue fetching token")
@@ -136,7 +137,13 @@ class App extends Component {
               handleSignUp={this.signUpUser}
             />
           )}/>
-          <Route exact path="/careguide" component={CareGuide}/>
+          <Route exact path="/careguide" render={(props) => (
+            <CareGuide
+              {...props}
+              washOptions={washOptions}
+              dryOptions={dryOptions}
+            />
+          )}/>
           <ProtectedRoute
             exact path="/profile"
             user={user}
