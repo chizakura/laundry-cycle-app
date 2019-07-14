@@ -1,6 +1,6 @@
 const express = require('express');
 const userRouter = express.Router();
-const {User, ClothingItem} = require('../models/index');
+const {User, ClothingItem, WashOption, DryOption} = require('../models/index');
 
 userRouter.get('/', async (req, res) => {
     const users = await User.findAll();
@@ -23,7 +23,7 @@ userRouter.get('/:id/items', async (req, res) => {
     const items = await ClothingItem.findAll({
         where: {
             userId: id
-        }
+        }, include: [WashOption, DryOption]
     });
     res.json({
         message: "list of user's clothes",
