@@ -97,7 +97,7 @@ class App extends Component {
     const {isSignedIn, user, washOptions, dryOptions, clothes, clothingItem} = this.state;
     return (
       <div className="App">
-        <Navbar bg="light" variant="light">
+        <Navbar bg="light" variant="light" expand="lg">
           <img style={{marginRight: '10px'}} src={logo} alt="laundry-logo"/>
           <Navbar.Brand as={Link} to="/">Laundry Cycle</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
@@ -141,6 +141,8 @@ class App extends Component {
             exact path="/profile"
             user={user}
             count={clothes.length}
+            clothes={clothes}
+            handleClothes={this.handleClothes}
             component={Profile}
           />
           <ProtectedRoute
