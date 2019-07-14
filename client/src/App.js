@@ -170,6 +170,8 @@ class App extends Component {
           />
           <ProtectedRoute
             exact path="/dryer"
+            clothes={clothes}
+            handleClothes={this.handleClothes}
             component={Dryer}
           />
         </Switch>
