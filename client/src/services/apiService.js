@@ -1,13 +1,12 @@
 // Most code on this page is based on Kareem Grant's repo here:
 // https://git.generalassemb.ly/sei-nyc-thunderbolt/express-auth-lesson
 import axios from 'axios';
-// import dotenv from 'dotenv';
-// dotenv.config();
-const BASE_URL = 'http://localhost:4567';
+import dotenv from 'dotenv';
+dotenv.config();
 const JWT_TOKEN = localStorage.getItem('token');
 
 const api = axios.create({
-    baseURL: BASE_URL,
+    baseURL: process.env.BASE_URL,
     headers: {
         'Authorization': `Bearer ${JWT_TOKEN}`
     }
