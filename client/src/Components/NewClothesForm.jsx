@@ -32,7 +32,7 @@ class NewClothesForm extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        const {user} = this.props;
+        const {user, handleClothes} = this.props;
         const {description, type, shadeCategory, material, brand, washoptionId, dryoptionId} = this.state;
         await axios.post(`/items/create`, {
             description,
@@ -44,6 +44,7 @@ class NewClothesForm extends Component {
             washoptionId,
             dryoptionId
         });
+        handleClothes(user.id)
         this.setState({
             redirect: true
         })

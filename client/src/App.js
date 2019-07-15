@@ -61,6 +61,7 @@ class App extends Component {
         isSignedIn: true,
         user
       })
+      this.handleClothes(user.id)
     } catch (err) {
       throw err
     }
@@ -179,6 +180,8 @@ class App extends Component {
             user={user}
             washOptions={washOptions}
             dryOptions={dryOptions}
+            clothes={clothes}
+            handleClothes={this.handleClothes}
             component={NewClothesForm}
           />
           <ProtectedRoute

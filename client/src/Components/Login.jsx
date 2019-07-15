@@ -33,7 +33,7 @@ class Login extends Component {
         const {email, password} = this.state;
         const {isSignedIn} = this.props;
         if(isSignedIn) {
-            return <Redirect to="/"/>
+            return <Redirect to="/profile"/>
         }
         return (
             <div className="login">
