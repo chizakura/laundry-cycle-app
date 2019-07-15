@@ -17,7 +17,7 @@
 
 **Laundry Cycle** is a React application that helps users organize their clothes for washing and drying. Users are able to add their clothes in the app and manually add the laundry care info from the clothes. There is also a guide to help users decipher the care symbols.
 
-- Laundry Cycle - React Application
+- [Laundry Cycle - React Application](https://laundry-cycle-react-app.herokuapp.com/)
 - [Washicons](http://lucijanblagonic.github.io/Washicons/)
 - [Tide Guide on How to Do Laundry](https://tide.com/en-us/how-to-wash-clothes/how-to-do-laundry/your-comprehensive-guide-on-how-to-do-laundry)
 
