@@ -96,6 +96,12 @@ body {
   line-height: 10em;
 }
 
+.edit-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
 .capitalize {
   text-transform: capitalize;
 }

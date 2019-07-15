@@ -1,14 +1,22 @@
 // Got getNestedObject function from https://hackernoon.com/accessing-nested-objects-in-javascript-f02f1bd6387f
 import React, {Component} from 'react';
+import axios from 'axios';
 import shirt from '../Images/shirt.png';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Accordion from 'react-bootstrap/Accordion';
+import CardText from './CardText';
+import EditCardText from './EditCardText';
 
 class ShowClothingItem extends Component {
+    state = {
+        showEdit: false,
+        redirect: false
+    }
+
     componentDidMount() {
         const {handleClothingItem} = this.props;
         handleClothingItem(this.props.match.params.itemId);
@@ -16,10 +24,19 @@ class ShowClothingItem extends Component {
 
     editButton = () => {
         console.log('edit')
+        if(this.state.showEdit) {
+            this.setState({showEdit: false})
+        } else {
+            this.setState({showEdit: true})
+        }
     }
 
-    deleteButton = () => {
+    deleteButton = async () => {
         console.log('delete')
+        await axios.delete(`http://localhost:4567/items/${this.props.match.params.itemId}`)
+        this.setState({
+            redirect: true
+        })
     }
 
     getNestedObject = (nestedObj, pathArr) => {
@@ -28,8 +45,12 @@ class ShowClothingItem extends Component {
     }
 
     render() {
-        const {clothingItem} = this.props;
-        const {getNestedObject} = this;
+        const {clothingItem, handleClothingItem} = this.props;
+        const {showEdit, redirect} = this.state;
+        const {getNestedObject, editButton} = this;
+        if(redirect) {
+            return <Redirect to="/closet"/>
+        }
         return (
             <div className="clothing-item">
                 <Card>
@@ -40,24 +61,28 @@ class ShowClothingItem extends Component {
                     </Card.Header>
                     <Card.Body>
                         <Row className="gap">
-                            <Col><Card.Img className="profile-pic" src={shirt}/></Col>
-                            <Col className="text-left profile-text">
-                                <Card.Text>
-                                    Shade Category: {clothingItem.colorShade}
-                                    <Badge size="sm"><i onClick={this.editButton} className="material-icons item-button">edit</i></Badge>
-                                </Card.Text>
-                                <Card.Text>
-                                    Type: {clothingItem.type}
-                                    <Badge size="sm"><i onClick={this.editButton} className="material-icons item-button">edit</i></Badge>
-                                </Card.Text>
-                                <Card.Text>
-                                    Material: {clothingItem.material}
-                                    <Badge size="sm"><i onClick={this.editButton} className="material-icons item-button">edit</i></Badge>
-                                </Card.Text>
-                                <Card.Text>
-                                    Brand: {clothingItem.brand}
-                                    <Badge size="sm"><i onClick={this.editButton} className="material-icons item-button">edit</i></Badge>
-                                </Card.Text>
+                            <Col xs={12} md={6}><Card.Img className="profile-pic" src={shirt}/></Col>
+                            <Col className="text-left profile-text" xs={12} md={6}>
+                            <i onClick={editButton} className="material-icons item-button edit-button">edit</i>
+                                {showEdit ? 
+                                    <EditCardText
+                                        itemId={this.props.match.params.itemId}
+                                        handleClothingItem={handleClothingItem}
+                                        editButton={editButton}
+                                        shadeCategoryValue={clothingItem.shadeCategory}
+                                        typeValue={clothingItem.type}
+                                        materialValue={clothingItem.material}
+                                        brandValue={clothingItem.brand}
+                                    /> : 
+                                    <CardText
+                                        itemId={this.props.match.params.itemId}
+                                        handleClothingItem={handleClothingItem}
+                                        shadeCategoryValue={clothingItem.shadeCategory}
+                                        typeValue={clothingItem.type}
+                                        materialValue={clothingItem.material}
+                                        brandValue={clothingItem.brand}
+                                    />
+                                }
                             </Col>
                         </Row>
                         <Row>
@@ -68,10 +93,10 @@ class ShowClothingItem extends Component {
                                         <Accordion.Collapse eventKey="0">
                                             <Card.Body>
                                                 <Row className="gap">
-                                                    <Col className="symbol-placement">
+                                                    <Col className="symbol-placement" xs={12} md={6}>
                                                         <Card.Text><i className={`icon icon-${getNestedObject(clothingItem, ['washoption', 'name'])} symbol-size`}></i></Card.Text>
                                                     </Col>
-                                                    <Col className="text-left capitalize">
+                                                    <Col className="text-left capitalize" xs={12} md={6}>
                                                         <Card.Text>{getNestedObject(clothingItem, ['washoption', 'type'])}</Card.Text>
                                                         <Card.Text>Cycle: {getNestedObject(clothingItem, ['washoption', 'cycle'])}</Card.Text>
                                                         <Card.Text>Water Temperature: {getNestedObject(clothingItem, ['washoption', 'waterTemp'])}</Card.Text>
@@ -93,10 +118,10 @@ class ShowClothingItem extends Component {
                                         <Accordion.Collapse eventKey="0">
                                             <Card.Body>
                                                 <Row className="gap">
-                                                    <Col className="symbol-placement">
+                                                    <Col className="symbol-placement" xs={12} md={6}>
                                                         <Card.Text><i className={`icon icon-${getNestedObject(clothingItem, ['dryoption', 'name'])} symbol-size`}></i></Card.Text>
                                                     </Col>
-                                                    <Col className="text-left capitalize">
+                                                    <Col className="text-left capitalize" xs={12} md={6}>
                                                         <Card.Text>{getNestedObject(clothingItem, ['dryoption', 'type'])}</Card.Text>
                                                         <Card.Text>Setting: {getNestedObject(clothingItem, ['dryoption', 'setting'])}</Card.Text>
                                                         <Card.Text>Heat Level: {getNestedObject(clothingItem, ['dryoption', 'heatLevel'])}</Card.Text>
