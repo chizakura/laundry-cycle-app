@@ -32,9 +32,9 @@ const seed = async () => {
 
         await DryOption.bulkCreate(dryOptions);
 
-        const item = await ClothingItem.create({
+        const itemOne = await ClothingItem.create({
             description: "My favorite shirt",
-            type: "t-shirt",
+            type: "shirt",
             shadeCategory: "mixed",
             material: "cotton",
             brand: "Gap",
@@ -42,7 +42,40 @@ const seed = async () => {
             dryoptionId: 2
         })
 
-        await item.setUser(admin);
+        const itemTwo = await ClothingItem.create({
+            description: "Grey blouse",
+            type: "blouse",
+            shadeCategory: "light",
+            material: "cotton",
+            brand: "H&M",
+            washoptionId: 2,
+            dryoptionId: 10
+        })
+
+        const itemThree = await ClothingItem.create({
+            description: "Charcoal jeans",
+            type: "pants",
+            shadeCategory: "dark",
+            material: "cotton",
+            brand: "Target",
+            washoptionId: 10,
+            dryoptionId: 5
+        })
+
+        const itemFour = await ClothingItem.create({
+            description: "wool cardigan",
+            type: "cardigan",
+            shadeCategory: "light",
+            material: "wool",
+            brand: "Muji",
+            washoptionId: 16,
+            dryoptionId: 16
+        })
+
+        await itemOne.setUser(admin);
+        await itemTwo.setUser(admin);
+        await itemThree.setUser(admin);
+        await itemFour.setUser(admin);
     } catch (err) {
         console.log("Could not create rows", err.message);
     } finally {

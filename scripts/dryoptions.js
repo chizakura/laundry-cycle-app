@@ -69,7 +69,7 @@ const dryData = {
             type: "line dry",
             setting: "none",
             heatLevel: "none",
-            canTumbleDry: false,
+            canTumbleDry: true,
             about: "Hang damp garment from line or bar, in or out doors."
         },
         {
@@ -77,7 +77,7 @@ const dryData = {
             type: "line dry",
             setting: "none",
             heatLevel: "none",
-            canTumbleDry: false,
+            canTumbleDry: true,
             about: "Usually added to Line or Drip Dry. Dry away from direct sunlight."
         },
         {
@@ -85,7 +85,7 @@ const dryData = {
             type: "line dry",
             setting: "none",
             heatLevel: "none",
-            canTumbleDry: false,
+            canTumbleDry: true,
             about: "Hang damp garment from line or bar, in or out doors. Dry away from direct sunlight."
         },
         {
@@ -93,7 +93,7 @@ const dryData = {
             type: "line dry",
             setting: "none",
             heatLevel: "none",
-            canTumbleDry: false,
+            canTumbleDry: true,
             about: "Lay out horizontally for drying."
         },
         {
@@ -101,7 +101,7 @@ const dryData = {
             type: "line dry",
             setting: "none",
             heatLevel: "none",
-            canTumbleDry: false,
+            canTumbleDry: true,
             about: "Lay out horizontally for drying. Dry away from direct sunlight."
         },
         {
@@ -109,7 +109,7 @@ const dryData = {
             type: "line dry",
             setting: "none",
             heatLevel: "none",
-            canTumbleDry: false,
+            canTumbleDry: true,
             about: "Hang dripping wet garment from line or bar, in or out doors, without hand shaping or smoothing."
         },
         {
@@ -117,7 +117,7 @@ const dryData = {
             type: "line dry",
             setting: "none",
             heatLevel: "none",
-            canTumbleDry: false,
+            canTumbleDry: true,
             about: "Hang dripping wet garment from line or bar, in or out doors, without hand shaping or smoothing. Dry away from direct sunlight."
         },
         {
@@ -133,7 +133,8 @@ const dryData = {
             type: "line dry",
             setting: "none",
             heatLevel: "none",
-            canTumbleDry: false
+            canTumbleDry: false,
+            about: 'A machine dryer may not be used and/or left dripping wet.'
         }
     ]
 }
