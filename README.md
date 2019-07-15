@@ -9,8 +9,8 @@
 |7/9| Core Application Structure (HTML, CSS, etc.) | Complete |
 |7/10| Pseudocode / actual code | Complete |
 |7/11| Initial Clickable Model | Complete |
-|7/12| MVP | Incomplete |
-|7/15| Present | Incomplete |
+|7/12| MVP | Complete |
+|7/15| Present | Complete |
 
 
 ## Project Description
@@ -108,14 +108,14 @@
 | Select care symbols | H | 5hrs | 4hrs |
 | Display ShowClothingItem page | H | 3hrs | 2.5hrs |
 | Display options on ShowClothingItem page | H | 3hrs | 3.5hrs |
-| Edit details for clothing item | M | 4.5hrs | - |
-| Delete clothes | M | 1.5hrs | - |
+| Edit details for clothing item | M | 4.5hrs | 4.5hrs |
+| Delete clothes | M | 1.5hrs | 0.5hrs |
 | Display Washer page | H | 1.5hrs | 1hr |
 | Display Dryer page | H | 1.5hrs | 0.5hrs |
 | Sort list of clothes by washing options | H | 5.5hrs | 4.5hrs |
 | Sort list of clothes by drying options | H | 3.5hrs | 1hr |
 | Display CareGuide page | M | 5hrs | 2.5hrs |
-| Total |  | 54hrs | - |
+| Total |  | 56.5hrs | 40hrs |
 
 ## Helper Functions
 | Function | Description | 
@@ -134,22 +134,31 @@
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description  
-
-#### SAMPLE.....
+#### Laundry Symbols on New Clothes Form
+- I am proud of this feature since it shows how I was able to manipulate components in React Bootstrap to fit my needs.
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+<OverlayTrigger
+	key={option.id}
+	placement="top"
+	overlay={
+		<Tooltip id="tooltip-top">
+			{option.about}
+		</Tooltip>}>
+	<Button
+		key={option.id}
+		name="washoptionId"
+		variant="light"
+		value={option.id}
+		className={
+			`icon icon-${option.name} icon-size`}>
+	</Button>
+</OverlayTrigger>
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
-
-#### SAMPLE.....
 | Original Plan | Outcome | 
-| --- | :---: |  
-| Have one Book component | Split that component into BookInfo and BookInteraction as the component grew too complicated | 
+| --- | --- |  
+| Have one CareGuide component | Split that component into CareGuide and GuideSection to contain the symbols in cards much easier | 
 
 ## Issues and Resolutions
 #### #1
@@ -161,3 +170,8 @@ function reverse(string) {
 **ISSUE**: Unable to access wash option and dry option objects that are nested in clothing item. 
 
 **RESOLUTION**: From this [link](https://hackernoon.com/accessing-nested-objects-in-javascript-f02f1bd6387f), used an array reduce method to safely access nested objects.
+
+#### #3
+**ISSUE**: Form was not submitting.
+
+**RESOLUTION**: A submit button was needed to submit the data.
