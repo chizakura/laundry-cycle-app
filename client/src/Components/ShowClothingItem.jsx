@@ -33,7 +33,7 @@ class ShowClothingItem extends Component {
 
     deleteButton = async () => {
         console.log('delete')
-        await axios.delete(`http://localhost:4567/items/${this.props.match.params.itemId}`)
+        await axios.delete(`/items/${this.props.match.params.itemId}`)
         this.setState({
             redirect: true
         })

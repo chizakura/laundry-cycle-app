@@ -6,10 +6,14 @@ const config = dotenv.parse(buf);
 
 const BCRYPT_SALT_ROUNDS = parseInt(config.SALT_KEY);
 
-const db = new Sequelize({
-    database: "laundry_cycle_db",
-    dialect: "postgres"
-})
+// const db = new Sequelize({
+//     database: "laundry_cycle_db",
+//     dialect: "postgres"
+// })
+
+const db = new Sequelize(process.env.DATABASE_URL , {
+    dialect: 'postgres'
+  });
 
 const User = db.define('user', {
     name: {

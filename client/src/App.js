@@ -32,8 +32,8 @@ class App extends Component {
   }
 
   getOptions = async () => {
-    const fetchedWashOptions = await axios('http://localhost:4567/washoptions');
-    const fetchedDryOptions = await axios('http://localhost:4567/dryoptions');
+    const fetchedWashOptions = await axios('/washoptions');
+    const fetchedDryOptions = await axios('/dryoptions');
     this.setState({
       washOptions: fetchedWashOptions.data.washoptions,
       dryOptions: fetchedDryOptions.data.dryoptions

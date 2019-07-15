@@ -33,7 +33,7 @@ class EditCardText extends Component {
 
     handleOnSubmit = async (event) => {
         event.preventDefault();
-        await axios.put(`http://localhost:4567/items/${this.props.itemId}`, {
+        await axios.put(`/items/${this.props.itemId}`, {
             type: this.state.type,
             shadeCategory: this.state.shadeCategory,
             material: this.state.material,

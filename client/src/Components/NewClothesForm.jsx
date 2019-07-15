@@ -34,7 +34,7 @@ class NewClothesForm extends Component {
         event.preventDefault();
         const {user} = this.props;
         const {description, type, shadeCategory, material, brand, washoptionId, dryoptionId} = this.state;
-        await axios.post(`http://localhost:4567/items/create`, {
+        await axios.post(`/items/create`, {
             description,
             type,
             shadeCategory,

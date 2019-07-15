@@ -24,7 +24,9 @@
     "init": "dropdb --if-exists laundry_cycle_db && createdb laundry_cycle_db",
     "reset": "node ./scripts/resetDb.js",
     "seed": "node ./scripts/seedDb.js",
-    "dev": "nodemon server.js"
+    "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+      "client": "cd client && npm start",
+      "dev": "concurrently --kill-others-on-fail \"npm run start\" \"npm run client\""
   },
   "repository": {
     "type": "git",
