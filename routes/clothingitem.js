@@ -31,9 +31,11 @@ clothingitemRouter.post('/create', async (req, res) => {
 
 clothingitemRouter.put('/:id', async (req, res) => {
     const updateItem = {
-        name: req.body.name,
+        description: req.body.description,
         type: req.body.type,
-        color: req.body.color
+        shadeCategory: req.body.shadeCategory,
+        material: req.body.material,
+        brand: req.body.brand
     }
     let update = await ClothingItem.update(updateItem, {
         where: {
