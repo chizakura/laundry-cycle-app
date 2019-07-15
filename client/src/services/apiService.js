@@ -54,9 +54,8 @@ export const signUp = async (data) => {
 export const getItems = async (id) => {
     try {
         const res = await api.get(`/users/${id}/items`);
-        const {data: {items}} = res;
 
-        return items
+        return res.data
     } catch (err) {
         throw err
     }

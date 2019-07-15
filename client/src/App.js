@@ -27,6 +27,7 @@ class App extends Component {
     dryOptions: [],
     clothes: [],
     clothingItem: {},
+    count: 0,
     itemWashOptions: {}
   }
 
@@ -82,7 +83,8 @@ class App extends Component {
     this.setState({
       isSignedIn: false,
       user: {},
-      clothes: []
+      clothes: [],
+      count: 0
     })
   }
 
@@ -96,12 +98,13 @@ class App extends Component {
   handleClothes = async (userId) => {
     const fetchedClothes = await getItems(userId);
     this.setState({
-      clothes: fetchedClothes
+      clothes: fetchedClothes.items,
+      count: fetchedClothes.count
     })
   }
 
   render() {
-    const {isSignedIn, user, washOptions, dryOptions, clothes, clothingItem} = this.state;
+    const {isSignedIn, user, washOptions, dryOptions, clothes, clothingItem, count} = this.state;
     return (
       <div className="App">
         <Navbar bg="light" variant="light" expand="lg">
@@ -154,7 +157,7 @@ class App extends Component {
           <ProtectedRoute
             exact path="/profile"
             user={user}
-            count={clothes.length}
+            count={count}
             clothes={clothes}
             handleClothes={this.handleClothes}
             component={Profile}

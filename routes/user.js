@@ -11,9 +11,10 @@ userRouter.get('/', async (req, res) => {
 })
 
 userRouter.get('/:id', async (req, res) => {
-    const user = await User.findByPk(req.params.id)
+    const {id} = req.params;
+    const user = await User.findByPk(id);
     res.json({
-        message: `user with id of ${req.params.id}`,
+        message: `user with id of ${id}`,
         user: user
     })
 })
@@ -25,9 +26,15 @@ userRouter.get('/:id/items', async (req, res) => {
             userId: id
         }, include: [WashOption, DryOption]
     });
+    const count = await ClothingItem.count({
+        where: {
+            userId: id
+        }
+    })
     res.json({
         message: "list of user's clothes",
-        items: items
+        items: items,
+        count: count
     })
 })
 
