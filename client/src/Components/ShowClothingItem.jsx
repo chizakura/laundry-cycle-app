@@ -48,6 +48,7 @@ class ShowClothingItem extends Component {
         const {clothingItem, handleClothingItem} = this.props;
         const {showEdit, redirect} = this.state;
         const {getNestedObject, editButton} = this;
+        const size = "M";
         if(redirect) {
             return <Redirect to="/closet"/>
         }
@@ -73,6 +74,7 @@ class ShowClothingItem extends Component {
                                         typeValue={clothingItem.type}
                                         materialValue={clothingItem.material}
                                         brandValue={clothingItem.brand}
+                                        sizeValue={size}
                                     /> : 
                                     <CardText
                                         itemId={this.props.match.params.itemId}
@@ -81,6 +83,7 @@ class ShowClothingItem extends Component {
                                         typeValue={clothingItem.type}
                                         materialValue={clothingItem.material}
                                         brandValue={clothingItem.brand}
+                                        sizeValue={size}
                                     />
                                 }
                             </Col>

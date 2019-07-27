@@ -8,7 +8,7 @@ class CardText extends Component {
     }
 
     render() {
-        const {shadeCategoryValue, typeValue, materialValue, brandValue} = this.props;
+        const {shadeCategoryValue, typeValue, materialValue, brandValue, sizeValue} = this.props;
         return (
             <div>
                 <Card.Text>
@@ -22,6 +22,9 @@ class CardText extends Component {
                 </Card.Text>
                 <Card.Text>
                     Brand: {brandValue}
+                </Card.Text>
+                <Card.Text>
+                    Size: {sizeValue}
                 </Card.Text>
             </div>
         )

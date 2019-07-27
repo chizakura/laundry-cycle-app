@@ -10,7 +10,8 @@ class EditCardText extends Component {
         shadeCategory: "",
         type: "",
         material: "",
-        brand: ""
+        brand: "",
+        size: ""
     }
 
     componentDidMount() {
@@ -43,8 +44,8 @@ class EditCardText extends Component {
     }
 
     render() {
-        const {shadeCategoryValue, typeValue, materialValue, brandValue} = this.props;
-        const {shadeCategory, type, material, brand} = this.state;
+        const {shadeCategoryValue, typeValue, materialValue, brandValue, sizeValue} = this.props;
+        const {shadeCategory, type, material, brand, size} = this.state;
         return (
             <Form onSubmit={this.handleOnSubmit}>
                 <Form.Group as={Row} controlId="shadeCategory">
@@ -77,6 +78,14 @@ class EditCardText extends Component {
                     </Col>
                     <Col sm="7">
                         <Form.Control size="sm" name="brand" type="text" placeholder={brandValue} value={brand} onChange={this.handleChange}/>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} controlId="size">
+                    <Col sm="5">
+                        <Form.Label>Size:</Form.Label>
+                    </Col>
+                    <Col sm="7">
+                        <Form.Control size="sm" name="size" type="text" placeholder={sizeValue} value={size} onChange={this.handleChange}/>
                     </Col>
                 </Form.Group>
                 <Button variant="light" type="submit">Submit</Button>
