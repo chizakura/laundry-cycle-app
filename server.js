@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({
   }));
 app.use(bodyParser.json());
 
-// Static hosting for built files
-app.use(express.static(path.join(__dirname, './client/build')));
+// // Static hosting for built files
+// app.use(express.static(path.join(__dirname, './client/build')));
 
 app.use((err, req, res, next)=>{
     res.status(err.status || 500)
@@ -40,9 +40,9 @@ app.get('/', (req, res) => res.send("Laundry Cycle server up and running"));
 
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
-if (process.env.NODE_ENV == "production") {
-  app.use('*', (req, res) => res.sendFile(path.join(__dirname, './client/build', "index.html")));
-}
+// if (process.env.NODE_ENV == "production") {
+//   app.use('*', (req, res) => res.sendFile(path.join(__dirname, './client/build', "index.html")));
+// }
 
 app.listen(PORT, () => {
     console.log(`Express server listening on port ${PORT}`);
